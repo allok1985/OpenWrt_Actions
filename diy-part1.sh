@@ -15,5 +15,5 @@
 
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-rm -rf /package/lean/luci-app-n2n_v2
-rm -rf /package/lean/n2n_v2
+rm -rf ./package/lean/luci-app-n2n_v2
+rm -rf ./package/lean/n2n_v2
