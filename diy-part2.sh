@@ -39,3 +39,11 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 #修改上游DNS
 #sed -i "2i # network config" openwrt/package/lean/default-settings/files/zzz-default-settings
 #sed -i "3i uci set network.lan.dns='10.10.10.2'"  openwrt/package/lean/default-settings/files/zzz-default-settings
+
+
+# Mod zzz-default-settings
+pushd package/lean/default-settings/files
+sed -i '/http/d' zzz-default-settings
+export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
+sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d"))/g" zzz-default-settings
+popd
