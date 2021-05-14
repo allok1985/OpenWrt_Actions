@@ -29,7 +29,7 @@
 
 sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
-#修改版本号为当前日期***
+#修改版本号为当前日期***再学习
 #sed -i '/DISTRIB_REVISION=/d' package/lean/default-settings/files/zzz-default-settings
 #echo "DISTRIB_REVISION='R$(TZ=UTC-8 date "+%Y.%m.%d")'" >> package/lean/default-settings/files/zzz-default-settings
 
