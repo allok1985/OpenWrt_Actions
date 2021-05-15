@@ -26,8 +26,7 @@
 
 #版本号里显示一个自己的名字
 #sed -i "s/OpenWrt /OpenWrt build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-
-sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+#sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 #修改版本号为当前日期***再学习
 #sed -i '/DISTRIB_REVISION=/d' package/lean/default-settings/files/zzz-default-settings
@@ -40,7 +39,7 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 #sed -i "2i # network config" openwrt/package/lean/default-settings/files/zzz-default-settings
 #sed -i "3i uci set network.lan.dns='10.10.10.2'"  openwrt/package/lean/default-settings/files/zzz-default-settings
 
-# Mod zzz-default-settings
+# Mod zzz-default-settings（版本后显示编译日期）
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
 export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
