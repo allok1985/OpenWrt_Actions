@@ -33,7 +33,7 @@
         
 #修改上游DNS
 #sed -i "2i # network config" openwrt/package/lean/default-settings/files/zzz-default-settings
-#sed -i "3i uci set network.lan.dns='10.10.10.2'"  openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i "3i uci set network.lan.dns='114.114.114.114'"  openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # Mod zzz-default-settings（版本后显示编译日期）
 pushd package/lean/default-settings/files
