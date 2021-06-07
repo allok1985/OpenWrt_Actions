@@ -42,7 +42,266 @@ dns:
   - 9.9.9.9
   - 80.80.80.80
   - 101.101.101.101
-  - 199.85.126.10
+  - 199.85.126.10bind_host: 0.0.0.0
+bind_port: 3333
+beta_bind_port: 0
+users:
+- name: root
+  password: $2y$10$ViDjxLkvPFUjqp2peisJYODqzgI9CBRU3sQgcx1fLpU8JnBl9WbMu
+auth_attempts: 5
+block_auth_min: 15
+http_proxy: ""
+language: ""
+rlimit_nofile: 0
+debug_pprof: false
+web_session_ttl: 720
+dns:
+  bind_hosts:
+  - 0.0.0.0
+  port: 5336
+  statistics_interval: 1
+  querylog_enabled: true
+  querylog_file_enabled: true
+  querylog_interval: 1
+  querylog_size_memory: 1000
+  anonymize_client_ip: false
+  protection_enabled: true
+  blocking_mode: nxdomain
+  blocking_ipv4: ""
+  blocking_ipv6: ""
+  blocked_response_ttl: 60
+  parental_block_host: family-block.dns.adguard.com
+  safebrowsing_block_host: standard-block.dns.adguard.com
+  ratelimit: 0
+  ratelimit_whitelist: []
+  refuse_any: false
+  upstream_dns:
+  - 223.5.5.5
+  - 119.29.29.29
+  - 114.114.114.114
+  - 180.76.76.76
+  - 1.2.4.8
+  - 1.1.1.1
+  - 8.8.8.8
+  - 9.9.9.9
+  - 208.67.222.222
+  - 185.222.222.222
+  - 185.184.222.222
+  - tcp://8.8.8.8
+  - tcp://8.8.4.4
+  - tcp://9.9.9.9
+  - https://1.0.0.1/dns-query
+  - https://dns.google/dns-query
+  upstream_dns_file: ""
+  bootstrap_dns:
+  - 223.5.5.5
+  - 208.67.222.222
+  - 114.114.114.114
+  - 119.29.29.29
+  - 180.76.76.76
+  all_servers: true
+  fastest_addr: false
+  allowed_clients: []
+  disallowed_clients: []
+  blocked_hosts:
+  - version.bind
+  - id.server
+  - hostname.bind
+  cache_size: 4194304
+  cache_ttl_min: 0
+  cache_ttl_max: 0
+  bogus_nxdomain: []
+  aaaa_disabled: false
+  enable_dnssec: false
+  edns_client_subnet: true
+  max_goroutines: 300
+  ipset: []
+  filtering_enabled: false
+  filters_update_interval: 24
+  parental_enabled: false
+  safesearch_enabled: false
+  safebrowsing_enabled: false
+  safebrowsing_cache_size: 1048576
+  safesearch_cache_size: 1048576
+  parental_cache_size: 1048576
+  cache_time: 30
+  rewrites: []
+  blocked_services: []
+  local_domain_name: lan
+  resolve_clients: true
+  local_ptr_upstreams: []
+tls:
+  enabled: false
+  server_name: ""
+  force_https: false
+  port_https: 443
+  port_dns_over_tls: 853
+  port_dns_over_quic: 784
+  port_dnscrypt: 0
+  dnscrypt_config_file: ""
+  allow_unencrypted_doh: false
+  strict_sni_check: false
+  certificate_chain: ""
+  private_key: ""
+  certificate_path: ""
+  private_key_path: ""
+filters:
+- enabled: false
+  url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
+  name: AdGuard Simplified Domain Names filter
+  id: 101
+- enabled: false
+  url: https://adaway.org/hosts.txt
+  name: AdAway
+  id: 102
+- enabled: false
+  url: https://hosts-file.net/ad_servers.txt
+  name: hpHosts - Ad and Tracking servers only
+  id: 103
+- enabled: false
+  url: https://www.malwaredomainlist.com/hostslist/hosts.txt
+  name: MalwareDomainList.com Hosts List
+  id: 104
+- enabled: false
+  url: https://raw.githubusercontent.com/vokins/yhosts/master/data/tvbox.txt
+  name: tvbox
+  id: 105
+- enabled: false
+  url: https://hosts.nfz.moe/full/hosts
+  name: neoHosts full
+  id: 106
+- enabled: false
+  url: https://hosts.nfz.moe/basic/hosts
+  name: neoHosts basic
+  id: 107
+- enabled: false
+  url: http://sbc.io/hosts/hosts
+  name: StevenBlack host basic
+  id: 108
+- enabled: false
+  url: http://sbc.io/hosts/alternates/fakenews-gambling-porn-social/hosts
+  name: StevenBlack host+fakenews + gambling + porn + social
+  id: 109
+- enabled: false
+  url: https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD/anti-ad-easylist.txt
+  name: anti-AD(Adblock+neohosts+yhosts+cjxlist+adhlist)
+  id: 110
+- enabled: false
+  url: http://www.malwaredomainlist.com/hostslist/hosts.txt
+  name: MalwareDomainList.com Hosts List
+  id: 112
+- enabled: false
+  url: https://raw.githubusercontent.com/523860169/list/master/ad.txt
+  name: My AdFilters
+  id: 113
+- enabled: false
+  url: http://tools.yiclear.com/ChinaList2.0.txt
+  name: ChinaListV2.0[20191126000]
+  id: 114
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/antiadblockfilters.txt
+  name: Adblock Warning Removal List
+  id: 115
+- enabled: false
+  url: https://fanboy.co.nz/fanboy-problematic-sites.txt
+  name: Fanboy's problematic-sites
+  id: 116
+- enabled: false
+  url: https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/ABP-FX.txt
+  name: ABP-FX
+  id: 117
+- enabled: false
+  url: https://raw.githubusercontent.com/adbyby/xwhyc-rules/master/lazy.txt
+  name: lazy
+  id: 118
+- enabled: false
+  url: https://hosts.nfz.moe/127.0.0.1/full/hosts
+  name: "127001"
+  id: 119
+- enabled: false
+  url: https://raw.githubusercontent.com/vokins/yhosts/master/hosts
+  name: "8"
+  id: 120
+- enabled: false
+  url: http://sub.adtchrome.com/adt-chinalist-easylist.txt
+  name: ChinaList+EasyList(修正)
+  id: 121
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt
+  name: ABP filters
+  id: 122
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt
+  name: EasyList China+EasyList
+  id: 123
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/exceptionrules.txt
+  name: Allow nonintrusive advertising
+  id: 124
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/fanboy-social.txt
+  name: Fanboy's Social Blocking List
+  id: 125
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easylist.txt
+  name: EasyList
+  id: 126
+- enabled: false
+  url: https://raw.githubusercontent.com/user1121114685/koolproxyR/master/koolproxyR/koolproxyR/data/rules/easylistchina.txt
+  name: EasyList China
+  id: 127
+- enabled: false
+  url: https://raw.githubusercontent.com/user1121114685/koolproxyR/master/koolproxyR/koolproxyR/data/rules/fanboy-annoyance.txt
+  name: Fanboy's Annoyance List
+  id: 128
+- enabled: false
+  url: https://raw.githubusercontent.com/user1121114685/koolproxyR/master/koolproxyR/koolproxyR/data/rules/yhosts.txt
+  name: yhosts
+  id: 129
+- enabled: false
+  url: https://raw.githubusercontent.com/user1121114685/koolproxyR/master/koolproxyR/koolproxyR/data/koolproxyR_ipset.conf
+  name: KPR
+  id: 130
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easylistchina.txt
+  name: EasyList China
+  id: 131
+- enabled: false
+  url: https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt
+  name: CJX's EasyList Lite
+  id: 132
+- enabled: false
+  url: https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+  name: CJX's Annoyance List
+  id: 133
+whitelist_filters: []
+user_rules: []
+dhcp:
+  enabled: false
+  interface_name: ""
+  dhcpv4:
+    gateway_ip: ""
+    subnet_mask: ""
+    range_start: ""
+    range_end: ""
+    lease_duration: 86400
+    icmp_timeout_msec: 1000
+    options: []
+  dhcpv6:
+    range_start: ""
+    lease_duration: 86400
+    ra_slaac_only: false
+    ra_allow_slaac: false
+clients: []
+log_compress: false
+log_localtime: false
+log_max_backups: 0
+log_max_size: 100
+log_max_age: 3
+log_file: ""
+verbose: false
+schema_version: 10
+
   - 208.67.222.222
   - tcp://8.8.8.8
   - tcp://8.8.4.4
