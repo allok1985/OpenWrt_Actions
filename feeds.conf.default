@@ -8,7 +8,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-link custom /usr/src/openwrt/custom-feed
 #----
 #Lienol大神
-#src-git lienol https://github.com/Lienol/openwrt-package.git;main
+src-git lienol https://github.com/Lienol/openwrt-package.git;main
 #n2n_v2s
 #src-git n2nv2s https://github.com/allok1985/n2n_v2s.git
 #翻墙
