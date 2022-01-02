@@ -12,7 +12,7 @@
 name: Update Checker feeds
 
 env:
-  REPO_URL: https://github.com/kenzok8/openwrt-packages
+  REPO_URL: https://github.com/kenzok8/small-package
   REPO_BRANCH: master
 
 on:
