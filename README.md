@@ -8,5 +8,7 @@ sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
 
 Build OpenWrt using GitHub Actions
 
+感谢P3TERX/Actions-OpenWrt提供的工具源码。
+
 [Read the details in my blog (in Chinese) | 中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
