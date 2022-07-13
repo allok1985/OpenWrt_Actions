@@ -43,6 +43,8 @@ sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d"))/g" zzz-default-s
 popd
 
 # Add luci-theme-argon
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
-rm -rf ../lean/luci-theme-argon
+#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
+#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+#rm -rf ../lean/luci-theme-argon
+# 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
+sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
