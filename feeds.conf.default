@@ -29,6 +29,8 @@ src-git dockerman https://github.com/lisaac/luci-app-dockerman
 src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser
 #src-git argon https://github.com/jerrykuku/luci-theme-argon
 #src-git argonc https://github.com/jerrykuku/luci-app-argon-config
-src-git istore https://github.com/linkease/istore
 #luci-lib-ipkg空包  argon主题？
 src-git opipkg https://github.com/xiangfeidexiaohuo/op-ipkg
+src-git istore https://github.com/linkease/istore
+src-git nas https://github.com/linkease/nas-packages.git;master
+src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
