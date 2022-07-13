@@ -13,7 +13,7 @@ name: Update Checker feeds
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt-package
-  REPO_BRANCH: master
+  REPO_BRANCH: main
 
 on:
   workflow_dispatch:
