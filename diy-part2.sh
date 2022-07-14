@@ -108,11 +108,15 @@ sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
 #sed -i 's/bootstrap/argon-18.06/g' ./feeds/luci/collections/luci/Makefile
 
 rm -rf ./feeds/luci/luci-theme-argon
-rm -rf ./feeds/packages/net/adguardhome
-rm -rf ./feeds/packages/net/smartdns
-rm -rf ./feeds/packages/net/mosdns
-rm -rf ./package/openwrt-passwall/v2ray-geodata
-rm -rf ./package/ssr/v2ray-geodata
+#rm -rf ./feeds/packages/net/adguardhome
+#rm -rf ./feeds/packages/net/smartdns
+#rm -rf ./feeds/packages/net/mosdns
+#rm -rf ./package/openwrt-passwall/v2ray-geodata
+#rm -rf ./package/ssr/v2ray-geodata
+
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
+git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
+git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 
 # svn co https://github.com/garypang13/openwrt-packages/trunk/shadowsocksr-libev package/lean/shadowsocksr-libev
 # svn co https://github.com/garypang13/openwrt-packages/trunk/luci-app-passwall feeds/passwall/luci-app-passwall
