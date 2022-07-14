@@ -105,7 +105,7 @@ sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 # sed -i '60s/ITdesk01/firkerword/' ./package/jd_openwrt_script/files/jd_openwrt_script
-sed -i 's/bootstrap/argon-18.06/g' ./feeds/luci/collections/luci/Makefile
+#sed -i 's/bootstrap/argon-18.06/g' ./feeds/luci/collections/luci/Makefile
 
 rm -rf ./feeds/luci/luci-theme-argon
 rm -rf ./feeds/packages/net/adguardhome
@@ -113,6 +113,8 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/net/mosdns
 rm -rf ./package/openwrt-passwall/v2ray-geodata
 rm -rf ./package/ssr/v2ray-geodata
+rm -rf ./lede/package/lean/luci-theme-argon
+
 # svn co https://github.com/garypang13/openwrt-packages/trunk/shadowsocksr-libev package/lean/shadowsocksr-libev
 # svn co https://github.com/garypang13/openwrt-packages/trunk/luci-app-passwall feeds/passwall/luci-app-passwall
 # svn co https://github.com/garypang13/openwrt-packages/trunk/luci-app-ssr-plus feeds/helloworld/luci-app-ssr-plus
