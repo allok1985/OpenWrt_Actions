@@ -66,7 +66,7 @@ sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
 #svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
 #git clone https://github.com/QiuSimons/openwrt-mos.git package/openwrt-mos
 #git clone https://github.com/sbwml/openwrt-alist.git package/openwrt-alist
-git clone https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
+#git clone https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
 # git clone https://github.com/kiddin9/openwrt-bypass.git package/openwrt-bypass
 #git clone https://github.com/fw876/helloworld.git package/ssr
 #git clone https://github.com/firker/diy-ziyong.git package/diy-ziyong
