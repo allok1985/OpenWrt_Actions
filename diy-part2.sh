@@ -43,10 +43,10 @@ sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d"))/g" zzz-default-s
 popd
 
 # Add luci-theme-argon
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
-rm -rf ../lean/luci-theme-argon
-rm -rf ./feeds/luci/luci-theme-argon
+#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
+#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+#rm -rf ../lean/luci-theme-argon
+#rm -rf ./feeds/luci/luci-theme-argon
 
 #cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
