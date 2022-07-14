@@ -21,6 +21,35 @@
 #rm -rf ./package/lean/luci-app-n2n_v2
 #rm -rf ./package/lean/n2n_v2
 
+#Lienol大神
+#echo 'src-git lienol https://github.com/Lienol/openwrt-package.git;main' >>feeds.conf.default
+#kenzok8
+#echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
+#echo 'src-git kenzok8 https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+#echo 'src-git small8 https://github.com/kenzok8/small-package' >>feeds.conf.default
+#n2n_v2s
+#echo 'src-git n2nv2s https://github.com/allok1985/n2n_v2s.git' >>feeds.conf.default
+#翻墙
+#echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+#echo 'src-git OpenClash https://github.com/vernesong/OpenClash' >>feeds.conf.default
+#echo 'rc-git passwall https://github.com/xiaorouji/openwrt-passwall.git' >>feeds.conf.default
+#echo 'src-git vssr https://github.com/jerrykuku/luci-app-vssr' >>feeds.conf.default
+#DNS
+#echo 'src-git smartdns https://github.com/pymumu/smartdns.git' >>feeds.conf.default
+#echo 'src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome' >>feeds.conf.default
+#dockerman
+#echo 'src-git dockerman https://github.com/lisaac/luci-app-dockerman' >>feeds.conf.default
+#AXS
+#echo 'src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser' >>feeds.conf.default
+#echo 'src-git argon https://github.com/jerrykuku/luci-theme-argon' >>feeds.conf.default
+#echo 'src-git argonc https://github.com/jerrykuku/luci-app-argon-config' >>feeds.conf.default
+#luci-lib-ipkg空包  argon主题？
+#echo 'src-git opipkg https://github.com/xiangfeidexiaohuo/op-ipkg' >>feeds.conf.default
+#echo 'src-git istore https://github.com/linkease/istore' >>feeds.conf.default
+#echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >>feeds.conf.default
+#echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >>feeds.conf.default
+
+
 #来源https://github.com/allok1985/openwrt-Exclusive/blob/main/diy5.15.sh
 #============================================================
 #sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
