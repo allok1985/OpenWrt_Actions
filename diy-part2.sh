@@ -113,7 +113,6 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/net/mosdns
 rm -rf ./package/openwrt-passwall/v2ray-geodata
 rm -rf ./package/ssr/v2ray-geodata
-rm -rf ./lede/package/lean/luci-theme-argon
 
 # svn co https://github.com/garypang13/openwrt-packages/trunk/shadowsocksr-libev package/lean/shadowsocksr-libev
 # svn co https://github.com/garypang13/openwrt-packages/trunk/luci-app-passwall feeds/passwall/luci-app-passwall
