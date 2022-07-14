@@ -34,3 +34,6 @@ src-git opipkg https://github.com/xiangfeidexiaohuo/op-ipkg
 src-git istore https://github.com/linkease/istore
 src-git nas https://github.com/linkease/nas-packages.git;master
 src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+
+src-git -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon-18.06
+src-git -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
