@@ -22,11 +22,17 @@
 #sed -i '/uci commit system/i\uci set system.@system[0].hostname='Soft_Routes'' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #设置密码为空
-sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings
+# 设置首次登录后台密码为空（进入openwrt后自行修改密码）
+sed -i '/CYXluq4wUazHjmCDBCqXF/d' "$ZZZ_PATH"
 
 #版本号里显示一个自己的名字
 #sed -i "s/OpenWrt /OpenWrt build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 #sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+# 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
+sed -i "s/OpenWrt /allok compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
+#sed -i "s/OpenWrt /${Author} compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
+
 
 #修改插件名字
 #sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' openwrt/package/lean/luci-app-sfe/po/zh-cn/sfe.po
@@ -55,7 +61,11 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/kenzo
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
-#sed -i 's/bootstrap/argon/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/bootstrap/argon/g' ./feeds/luci/collections/luci/Makefile
+# 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
+sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
+# 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
+sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
 
 #cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
@@ -80,17 +90,11 @@ git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme
 
 
 
-# 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
-sed -i "s/bootstrap/argon/ig" feeds/luci/collections/luci/Makefile
-# 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
-sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
 
-# 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
-sed -i "s/OpenWrt /allok compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
-#sed -i "s/OpenWrt /${Author} compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
 
-# 设置首次登录后台密码为空（进入openwrt后自行修改密码）
-sed -i '/CYXluq4wUazHjmCDBCqXF/d' "$ZZZ_PATH"
+
+
+
 
 # 取消路由器每天跑分任务
 #sed -i "/exit 0/i\sed -i '/coremark/d' /etc/crontabs/root" "$FIN_PATH"
