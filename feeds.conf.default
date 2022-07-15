@@ -25,12 +25,14 @@ src-git smartdns https://github.com/pymumu/smartdns.git
 #src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome
 #dockerman
 src-git dockerman https://github.com/lisaac/luci-app-dockerman
-#AXS
+#filebrowser
 src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser
+#主题
 src-git themeargon https://github.com/jerrykuku/luci-theme-argon
 src-git themeargonc https://github.com/jerrykuku/luci-app-argon-config
 #luci-lib-ipkg空包  argon主题？
 src-git opipkg https://github.com/xiangfeidexiaohuo/op-ipkg
+#易有云
 src-git istore https://github.com/linkease/istore
 #src-git nas https://github.com/linkease/nas-packages.git;master
 #src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
