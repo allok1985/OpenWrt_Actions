@@ -52,8 +52,8 @@ sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d"))/g" zzz-default-s
 popd
 
 # Add luci-theme-argon
-rm -rf ../lean/luci-theme-argon
-rm -rf ./feeds/luci/luci-theme-argon
+#rm -rf ../lean/luci-theme-argon
+#rm -rf ./feeds/luci/luci-theme-argon
 rm -rf ./feeds/kenzok8/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-argon
 #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
