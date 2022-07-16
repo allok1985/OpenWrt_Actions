@@ -7,12 +7,14 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-git oldpackages http://git.openwrt.org/packages.git
 #src-link custom /usr/src/openwrt/custom-feed
 #----
-#Lienol大神
+#Lienol
 src-git lienol https://github.com/Lienol/openwrt-package.git;main
 #kenzok8
 src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
-#src-git small8 https://github.com/kenzok8/small-package
+#src-git small-package https://github.com/kenzok8/small-package
+#xiangfeidexiaohuo
+#src-git xiangfeidexiaohuo https://github.com/xiangfeidexiaohuo/openwrt-packages
 #linkease
 #src-git istore_packages https://github.com/linkease/istore-packages.git;main
 #n2n_v2s
