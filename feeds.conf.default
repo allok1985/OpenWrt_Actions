@@ -14,7 +14,7 @@ src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small8 https://github.com/kenzok8/small-package
 #linkease
-#src-git istore-packages https://github.com/linkease/istore-packages.git;main
+#src-git istore_packages https://github.com/linkease/istore-packages.git;main
 #n2n_v2s
 #src-git n2nv2s https://github.com/allok1985/n2n_v2s.git
 #翻墙
@@ -40,3 +40,5 @@ src-git themeopentopd https://github.com/sirpdboy/luci-theme-opentopd.git
 src-git istore https://github.com/linkease/istore
 #src-git nas https://github.com/linkease/nas-packages.git;master
 #src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+#OpenAppFilter
+#src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git;master
