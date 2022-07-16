@@ -22,16 +22,16 @@
 #sed -i '/uci commit system/i\uci set system.@system[0].hostname='Allok_Routes'' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 #设置密码为空
-sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings
+#sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings
 # 设置首次登录后台密码为空（进入openwrt后自行修改密码）
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' "$ZZZ_PATH"
 
 #版本号里显示一个自己的名字
 #sed -i "s/OpenWrt /OpenWrt build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+#sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 # 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
 #sed -i "s/OpenWrt /Allok compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
-#sed -i "s/OpenWrt /${Author} compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
+sed -i "s/OpenWrt /${Author} compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
 
 #修改上游DNS
 #sed -i "2i # network config" openwrt/package/lean/default-settings/files/zzz-default-settings
