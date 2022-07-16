@@ -112,7 +112,7 @@ sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/l
 #sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' openwrt/package/lean/luci-app-sfe/po/zh-cn/sfe.po
   
 
-
+#https://github.com/xiangfeidexiaohuo/OpenWrt_Build/blob/master/diy/lean/lean2.sh
 #https://github.com/lance65/Actions-OpenWrt/blob/master/Standard.sh
 #https://github.com/allok1985/openwrt-Exclusive/blob/main/diy.sh
 #============================================================
