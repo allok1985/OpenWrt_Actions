@@ -63,6 +63,9 @@ sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci com
 #去除默认bootstrap主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
+#./scripts/feeds update luci-theme-edge
+#./scripts/feeds install luci-theme-edge
+
 #cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
 #uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
@@ -95,8 +98,7 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 #sed -i 's/"管理权"/"改密码"/g' `egrep "管理权" -rl ./`
 #修改插件名字
 #sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' openwrt/package/lean/luci-app-sfe/po/zh-cn/sfe.po
-  
-
+ 
 #https://github.com/xiangfeidexiaohuo/OpenWrt_Build/blob/master/diy/lean/lean2.sh
 #https://github.com/lance65/Actions-OpenWrt/blob/master/Standard.sh
 #https://github.com/allok1985/openwrt-Exclusive/blob/main/diy.sh
