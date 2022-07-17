@@ -15,6 +15,8 @@ src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small-package https://github.com/kenzok8/small-package
 #xiangfeidexiaohuo
 #src-git xiangfeidexiaohuo https://github.com/xiangfeidexiaohuo/openwrt-packages
+#Boos4721
+#src-git Boos4721 https://github.com/Boos4721/OpenWrt-Packages
 #linkease
 #src-git istore_packages https://github.com/linkease/istore-packages.git;main
 #n2n_v2s
