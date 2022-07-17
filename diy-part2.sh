@@ -102,3 +102,5 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 #https://github.com/xiangfeidexiaohuo/OpenWrt_Build/blob/master/diy/lean/lean2.sh
 #https://github.com/lance65/Actions-OpenWrt/blob/master/Standard.sh
 #https://github.com/allok1985/openwrt-Exclusive/blob/main/diy.sh
+#https://github.com/superman110/Docker-Openwrt-N1/blob/master/old_diy-part2.sh
+#https://github.com/Suct41/OpenWrt/blob/main/diy-part2.sh
