@@ -48,23 +48,30 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 # Add luci-theme-argon
 rm -rf ./feeds/kenzok8/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-argon
-#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
-#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-theme-argon-config
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/kenzok8/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
-#git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
-#git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/kenzok8/luci-theme-argon
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-theme-argon-config
+./scripts/feeds update luci-theme-argon
+./scripts/feeds install -a -f -p luci-theme-argon
+./scripts/feeds update luci-theme-argon-config
+./scripts/feeds install -a -f -p luci-theme-argon-config
+git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
+./scripts/feeds update luci-theme-edge
+./scripts/feeds install -a -f -p luci-theme-edge
+git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+./scripts/feeds update luci-theme-opentopd
+./scripts/feeds install -a -f -p luci-theme-opentopd
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 sed -i 's/bootstrap/argon/g' ./feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
 # 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
 sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
 #去除默认bootstrap主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
-#./scripts/feeds update luci-theme-edge
-#./scripts/feeds install luci-theme-edge
+
 
 #cat >$NETIP <<-EOF
 #uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
