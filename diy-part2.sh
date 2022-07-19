@@ -48,6 +48,7 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 # Add luci-theme-argon
 rm -rf ./feeds/kenzok8/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf ./package/luci-theme-argon
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/kenzok8/luci-theme-argon
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
@@ -57,9 +58,11 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git packa
 ./scripts/feeds install -a -f -p luci-theme-argon
 ./scripts/feeds update luci-theme-argon-config
 ./scripts/feeds install -a -f -p luci-theme-argon-config
+rm -rf ./package/luci-theme-edge
 git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
 ./scripts/feeds update luci-theme-edge
 ./scripts/feeds install -a -f -p luci-theme-edge
+rm -rf ./package/luci-theme-opentopd
 git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
 ./scripts/feeds update luci-theme-opentopd
 ./scripts/feeds install -a -f -p luci-theme-opentopd
