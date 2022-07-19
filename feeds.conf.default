@@ -48,3 +48,5 @@ src-git istore https://github.com/linkease/istore
 #src-git OpenAppFilter https://github.com/destan19/OpenAppFilter.git;master
 #自动更新
 #src-git autoupdate https://github.com/lllrrr2/luci-app-autoupdate
+#关机
+#src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git
