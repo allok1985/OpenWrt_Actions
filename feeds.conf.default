@@ -39,9 +39,9 @@ src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master
 #filebrowser
 src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master
 #自动更新
-#src-git autoupdate https://github.com/lllrrr2/luci-app-autoupdate
+src-git autoupdate https://github.com/lllrrr2/luci-app-autoupdate
 #关机
-#src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git
+src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git
 #n2n_v2s
 #src-git n2nv2s https://github.com/allok1985/n2n_v2s.git
 #OpenAppFilter
