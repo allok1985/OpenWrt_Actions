@@ -74,12 +74,6 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
-    - name: Cache
-      uses: klever1988/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        prefix: ${{ github.workspace }}/openwrt
-
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
