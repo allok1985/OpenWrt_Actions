@@ -19,8 +19,8 @@ src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #Boos4721
 #src-git Boos4721 https://github.com/Boos4721/OpenWrt-Packages
 #----主题----
-src-git themeargon https://github.com/jerrykuku/luci-theme-argon.git;18.06
-src-git themeargonc https://github.com/jerrykuku/luci-app-argon-config.git;master
+#src-git themeargon https://github.com/jerrykuku/luci-theme-argon.git;18.06
+#src-git themeargonc https://github.com/jerrykuku/luci-app-argon-config.git;master
 #luci-lib-ipkg空包  argon主题？
 src-git opipkg https://github.com/xiangfeidexiaohuo/op-ipkg
 src-git themeedge https://github.com/garypang13/luci-theme-edge.git;18.06
