@@ -50,7 +50,6 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 #rm -rf ./feeds/luci/themes/luci-theme-argon
 #rm -rf ./package/luci-theme-argon
 #svn co https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/kenzok8/luci-theme-argon
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
 if [ ! -d "./package/lean/luci-app-argon" ]; then git clone https://github.com/jerrykuku/luci-app-argon.git ./package/lean/luci-app-argon;   else cd ./package/lean/luci-app-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config
@@ -61,13 +60,11 @@ if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://githu
 #./scripts/feeds install -a -f -p package/luci-theme-argon-config
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 sed -i 's/bootstrap/argon/g' ./feeds/luci/collections/luci/Makefile
-sed -i 's/material/argon/g' ./feeds/luci/collections/luci/Makefile
-sed -i 's/netgear/argon/g' ./feeds/luci/collections/luci/Makefile
-sed -i 's/tomato/argon/g' ./feeds/luci/collections/luci/Makefile
+
 #sed -i 's/bootstrap/argon/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
 # 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
-sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
+#sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
 #去除默认bootstrap主题
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
