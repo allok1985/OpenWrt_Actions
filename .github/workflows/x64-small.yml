@@ -26,6 +26,7 @@ env:
   CONFIG_FILE: x64-small.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
+  RELEASE_TAG: x64-small
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
