@@ -167,7 +167,7 @@ jobs:
       run: |
         echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
         echo "## Update content" >> release.txt
-        echo "${{ steps.tag.outputs.release_tag }}" >> release.txt
+        echo "(${{ steps.tag.outputs.release_tag }})" >> release.txt
         touch release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
