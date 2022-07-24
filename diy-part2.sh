@@ -45,6 +45,16 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 #cat >$DELETE <<-EOF
 #EOF
 
+# Edit theme-mcat css and js
+sed -i '/a\[data-title="Docker"\]:before/{p;N;N;d}'  feeds/kenzo/luci-theme-mcat/files/htdocs/css/style.css
+sed -i '/a\[data-title="Docker"\]:before/a\ content: "\\e025";\n color: #66CC00!important;' feeds/kenzo/luci-theme-mcat/files/htdocs/css/style.css
+sed -i "s/if (href.indexOf(nodeUrl) != -1) {/if (href.substr(href.length-nodeUrl.length,nodeUrl.length) == nodeUrl) {/g" feeds/kenzo/luci-theme-mcat/files/htdocs/js/script.js
+
+# Edit theme-tomato css
+sed -i '/a\[data-title="Docker"\]:before/{p;N;N;d}'  feeds/kenzo/luci-theme-tomato/htdocs/luci-static/tomato/cascade.css 
+sed -i '/a\[data-title="Docker"\]:before/a\ content: "\\e025";\n color: #66CC00!important;' feeds/kenzo/luci-theme-tomato/htdocs/luci-static/tomato/cascade.css 
+sed -i "s/if (href.indexOf(nodeUrl) != -1) {/if (href.substr(href.length-nodeUrl.length,nodeUrl.length) == nodeUrl) {/g" feeds/kenzo/luci-theme-tomato/htdocs/luci-static/tomato/js/script.js
+
 # Add luci-theme-argon
 rm -rf ./feeds/kenzok8/luci-theme-tomato
 #rm -rf ./feeds/kenzok8/luci-theme-argon
@@ -110,3 +120,4 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 #https://github.com/smallprogram/OpenWrtAction/blob/main/diy_script/diy-part2.sh
 #https://github.com/281677160/build-actions/blob/main/build/Lede_source/diy-part.sh
 #https://github.com/HiJwm/Build-OpenWrt/blob/main/build/Lede_source/diy-part.sh
+#https://github.com/nbMars1980/openwrt/blob/main/diy-part2.sh
