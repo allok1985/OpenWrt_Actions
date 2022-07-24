@@ -48,7 +48,7 @@ sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" packag
 # Add luci-theme-argon
 rm -rf ./feeds/kenzok8/luci-theme-tomato
 rm -rf ./feeds/luci/themes/luci-theme-tomato
-rm -rf ./package/feeds/luci-theme-tomato
+#rm -rf ./package/feeds/luci-theme-tomato
 #rm -rf ./feeds/kenzok8/luci-theme-argon
 #rm -rf ./feeds/luci/themes/luci-theme-argon
 #rm -rf ./package/luci-theme-argon
