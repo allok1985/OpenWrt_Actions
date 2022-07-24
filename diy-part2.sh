@@ -121,3 +121,4 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 #https://github.com/281677160/build-actions/blob/main/build/Lede_source/diy-part.sh
 #https://github.com/HiJwm/Build-OpenWrt/blob/main/build/Lede_source/diy-part.sh
 #https://github.com/nbMars1980/openwrt/blob/main/diy-part2.sh
+#https://github.com/helmiau/helmiwrt-packages/blob/main/build-ipk/lean-openwrt.sh
