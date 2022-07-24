@@ -54,9 +54,10 @@ rm -rf ./feeds/kenzok8/luci-theme-tomato
 #rm -rf ./package/luci-theme-argon
 #svn co https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/luci-app-argon-config
 if [ ! -d "./package/lean/luci-app-argon" ]; then git clone https://github.com/jerrykuku/luci-app-argon.git ./package/lean/luci-app-argon;   else cd ./package/lean/luci-app-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config
-if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
+#if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 #./scripts/feeds update package/luci-theme-argon
 #./scripts/feeds install -a -f -p package/luci-theme-argon
 #./scripts/feeds update package/luci-theme-argon-config
