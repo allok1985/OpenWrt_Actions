@@ -6,6 +6,17 @@
 
 sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
 
+git clone https://github.com/coolsnowwolf/lede
+cd lede
+./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+
+git pull
+./scripts/feeds update -a && ./scripts/feeds install -a
+make download -j8
+make V=s -j1
+
 Build OpenWrt using GitHub Actions
 
 感谢P3TERX/Actions-OpenWrt提供的工具源码。
