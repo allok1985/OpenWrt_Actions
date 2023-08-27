@@ -13,6 +13,12 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
+rm -rf feeds/packages/lang/golang
+rm -rf feeds/kenzok8/luci-app-alist
+git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/luci-app-alist package/alist
+
+
 #files目录权限
 #chmod -R 755 files
 
@@ -99,17 +105,7 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
 
-# 修改插件名字
-#sed -i 's/"aMule设置"/"电驴下载"/g' `egrep "aMule设置" -rl ./`
-#sed -i 's/"网络存储"/"NAS"/g' `egrep "网络存储" -rl ./`
-#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `egrep "Turbo ACC 网络加速" -rl ./`
-#sed -i 's/"KMS 服务器"/"KMS激活"/g' `egrep "KMS 服务器" -rl ./`
-#sed -i 's/"终端"/"命令窗"/g' `egrep "终端" -rl ./`
-#sed -i 's/"USB 打印服务器"/"打印服务"/g' `egrep "USB 打印服务器" -rl ./`
-#sed -i 's/"Web 管理"/"Web管理"/g' `egrep "Web 管理" -rl ./`
-#sed -i 's/"管理权"/"改密码"/g' `egrep "管理权" -rl ./`
-#修改插件名字
-#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' openwrt/package/lean/luci-app-sfe/po/zh-cn/sfe.po
+
  
 #https://github.com/xiangfeidexiaohuo/OpenWrt_Build/blob/master/diy/lean/lean2.sh
 #https://github.com/lance65/Actions-OpenWrt/blob/master/Standard.sh
