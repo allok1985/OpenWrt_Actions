@@ -67,7 +67,7 @@ jobs:
       with:
         ccache: 'true'
         mixkey: 'ramips'
-        prefix: ${{ github.workspace }}/openwrt
+        prefix: 'openwrt'
 
     - name: Load custom feeds
       run: |
