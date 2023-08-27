@@ -17,7 +17,7 @@ src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small-package https://github.com/kenzok8/small-package
 #diy-ziyong
-src-git diy-ziyong https://github.com/firker/diy-ziyong.git
+src-git ziyong https://github.com/firker/diy-ziyong.git
 
 #----软件----
 #翻墙
