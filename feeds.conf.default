@@ -16,17 +16,8 @@ src-git lienol https://github.com/Lienol/openwrt-package.git;main
 src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small-package https://github.com/kenzok8/small-package
-
-
-
 #diy-ziyong
 src-git diy-ziyong https://github.com/firker/diy-ziyong.git
-
-git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
-
-git clone https://github.com/firkerword/luci-app-lucky.git package/lucky
-
-
 
 #----软件----
 #翻墙
@@ -42,6 +33,12 @@ src-git smartdns https://github.com/pymumu/smartdns.git
 src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master
 #filebrowser
 src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master
+
+#信息推送
+src-git serverchan https://github.com/tty228/luci-app-serverchan.git
+#sirpdboy动态域名、代理
+src-git lucky https://github.com/firkerword/luci-app-lucky.git
+
 #自动更新
 src-git autoupdate https://github.com/lllrrr2/luci-app-autoupdate
 #关机
