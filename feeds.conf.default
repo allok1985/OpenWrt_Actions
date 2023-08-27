@@ -17,12 +17,24 @@ src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small-package https://github.com/kenzok8/small-package
 
+
+
+#diy-ziyong
+src-git diy-ziyong https://github.com/firker/diy-ziyong.git
+
+git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
+
+git clone https://github.com/firkerword/luci-app-lucky.git package/lucky
+
+
+
 #----软件----
 #翻墙
 #src-git helloworld https://github.com/fw876/helloworld
 #src-git OpenClash https://github.com/vernesong/OpenClash
 #src-git passwall https://github.com/xiaorouji/openwrt-passwall.git
 #src-git vssr https://github.com/jerrykuku/luci-app-vssr
+
 #DNS
 src-git smartdns https://github.com/pymumu/smartdns.git
 #src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome
@@ -39,3 +51,7 @@ src-git istore https://github.com/linkease/istore
 #src-git istore_packages https://github.com/linkease/istore-packages.git;main
 #src-git nas https://github.com/linkease/nas-packages.git;master
 #src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+
+#主题
+#src-git luci-theme-neobird https://github.com/thinktip/luci-theme-neobird.git
+#src-git luci-theme-opentopd https://github.com/sirpdboy/luci-theme-opentopd.git
