@@ -16,8 +16,10 @@ src-git lienol https://github.com/Lienol/openwrt-package.git;main
 src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small-package https://github.com/kenzok8/small-package
-#diy-ziyong
+#firker
 src-git ziyong https://github.com/firker/diy-ziyong.git
+#siropboy
+src-git siropboy https://github.com/siropboy/sirpdboy-package
 
 #----软件----
 #翻墙
