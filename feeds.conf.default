@@ -15,8 +15,8 @@ src-git kenzok8small https://github.com/kenzok8/small
 src-git kenzok8packages https://github.com/kenzok8/openwrt-packages
 #src-git kenzok8smallpackage https://github.com/kenzok8/small-package
 src-git ziyong https://github.com/firker/diy-ziyong.git
-src-git siropboy https://github.com/siropboy/sirpdboy-package
-#src-git sundaqiang https://github.com/sundaqiang/openwrt-packages
+#src-git siropboy https://github.com/siropboy/sirpdboy-package
+src-git sundaqiang https://github.com/sundaqiang/openwrt-packages
 
 #----软件----
 #翻墙
