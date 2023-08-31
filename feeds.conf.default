@@ -10,16 +10,13 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-link custom /usr/src/openwrt/custom-feed
 
 #----软件仓库----
-#Lienol
 src-git lienol https://github.com/Lienol/openwrt-package.git;main
-#kenzok8
 src-git small https://github.com/kenzok8/small
 src-git kenzok8 https://github.com/kenzok8/openwrt-packages
 #src-git small-package https://github.com/kenzok8/small-package
-#firker
 src-git ziyong https://github.com/firker/diy-ziyong.git
-#siropboy
 src-git siropboy https://github.com/siropboy/sirpdboy-package
+src-git sundaqiang https://github.com/sundaqiang/openwrt-packages
 
 #----软件----
 #翻墙
