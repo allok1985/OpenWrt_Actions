@@ -11,7 +11,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 
 #----软件仓库----
 src-git lienol https://github.com/Lienol/openwrt-package.git;main
-#src-git kenzok8small https://github.com/kenzok8/small
+src-git kenzok8small https://github.com/kenzok8/small
 src-git kenzok8packages https://github.com/kenzok8/openwrt-packages
 #src-git kenzok8smallpackage https://github.com/kenzok8/small-package
 src-git ziyong https://github.com/firker/diy-ziyong.git
@@ -21,11 +21,11 @@ src-git sundaqiang https://github.com/sundaqiang/openwrt-packages
 
 #----软件----
 #翻墙
-src-git helloworld https://github.com/fw876/helloworld
-src-git OpenClash https://github.com/vernesong/OpenClash
-src-git passwall https://github.com/xiaorouji/openwrt-passwall.git
-src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git
-src-git vssr https://github.com/jerrykuku/luci-app-vssr
+#src-git helloworld https://github.com/fw876/helloworld
+#src-git OpenClash https://github.com/vernesong/OpenClash
+#src-git passwall https://github.com/xiaorouji/openwrt-passwall.git
+#src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git
+#src-git vssr https://github.com/jerrykuku/luci-app-vssr
 
 #DNS
 #src-git smartdns https://github.com/pymumu/smartdns.git
