@@ -40,8 +40,6 @@ jobs:
 
     steps:
 
-    steps:
-
     - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
