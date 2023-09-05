@@ -11,12 +11,12 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 
 #----软件仓库----
 src-git lienol https://github.com/Lienol/openwrt-package.git;main
-src-git kenzok8small https://github.com/kenzok8/small.git;main
-src-git kenzok8packages https://github.com/kenzok8/openwrt-packages.git;main
-#src-git kenzok8smallpackage https://github.com/kenzok8/small-package.git;main
-src-git ziyong https://github.com/firker/diy-ziyong.git;main
-#src-git siropboy https://github.com/siropboy/sirpdboy-package.git;main
-src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git;main
+src-git kenzok8small https://github.com/kenzok8/small
+src-git kenzok8packages https://github.com/kenzok8/openwrt-packages
+#src-git kenzok8smallpackage https://github.com/kenzok8/small-package
+src-git ziyong https://github.com/firker/diy-ziyong
+#src-git siropboy https://github.com/siropboy/sirpdboy-package
+src-git sundaqiang https://github.com/sundaqiang/openwrt-packages
 #src-git haiibo https://github.com/haiibo/openwrt-packages
 
 #----软件----
