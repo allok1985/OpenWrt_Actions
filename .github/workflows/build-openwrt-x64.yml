@@ -41,20 +41,20 @@ jobs:
 
     steps:
 
-#    - name: Free Disk Space (Ubuntu)
-#      uses: jlumbroso/free-disk-space@main
-#      with:
-#        # this might remove tools that are actually needed,
-#        # if set to "true" but frees about 6 GB
-#        tool-cache: true
-#        
-#        # all of these default to true, but feel free to set to
-#        # "false" if necessary for your workflow
-#        android: true
-#        dotnet: true
-#        haskell: true
-#        large-packages: true
-#        swap-storage: true
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        # this might remove tools that are actually needed,
+        # if set to "true" but frees about 6 GB
+        tool-cache: true
+        
+        # all of these default to true, but feel free to set to
+        # "false" if necessary for your workflow
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: true
+        swap-storage: true
     
     - name: Checkout
       uses: actions/checkout@main
@@ -130,7 +130,8 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-
+        df -hT
+        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
