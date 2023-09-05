@@ -83,8 +83,6 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
         df -hT
 
-
-
     - name: Clone source code
       working-directory: /workdir
       run: |
