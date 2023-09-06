@@ -13,6 +13,9 @@
 #sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX := $(shell date +'%F')' ./include/image.mk
 #sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
 
+rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
+
 #来源https://github.com/allok1985/openwrt-Exclusive/blob/main/diy5.15.sh
 #============================================================
 #sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
