@@ -53,10 +53,10 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 
 
 # Add luci-theme-argon
-rm -rf ./feeds/kenzok8packages/luci-theme-argon
-rm -rf ./package/feeds/kenzok8packages/luci-theme-argon
-rm -rf ./feeds/luci/themes/luci-theme-argon
-rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
+#rm -rf ./feeds/kenzok8packages/luci-theme-argon
+#rm -rf ./package/feeds/kenzok8packages/luci-theme-argon
+#rm -rf ./feeds/luci/themes/luci-theme-argon
+#rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
 #svn co https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #svn co https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 #./scripts/feeds update package/luci-theme-argon
@@ -65,8 +65,8 @@ rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
 #./scripts/feeds install -a -f -p package/luci-theme-argon-config
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config
-if [ ! -d "./package/lean/luci-theme-argon" ]; then git clone https://github.com/kenzok8/openwrt-packages/tree/master/luci-theme-argon ./package/lean/luci-theme-argon;   else cd ./package/lean/luci-theme-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
-if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-argon-config ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
+#if [ ! -d "./package/lean/luci-theme-argon" ]; then git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/lean/luci-theme-argon;   else cd ./package/lean/luci-theme-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
+#if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 
 # 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
