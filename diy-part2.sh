@@ -54,9 +54,9 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 
 # Add luci-theme-argon
 #rm -rf ./feeds/kenzok8/luci-theme-tomato
-#rm -rf ./feeds/kenzok8/luci-theme-argon
+rm -rf ./feeds/kenzok8/luci-theme-argon
 rm -rf ./feeds/luci/themes/luci-theme-argon
-rm -rf ./package/feeds/luci/luci/Makefile/luci-theme-argon
+rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
 svn co https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 svn co https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 ./scripts/feeds update package/luci-theme-argon
