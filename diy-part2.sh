@@ -68,7 +68,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 #if [ ! -d "./package/lean/luci-theme-argon" ]; then git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/lean/luci-theme-argon;   else cd ./package/lean/luci-theme-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 #if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 
-# 把bootstrap替换成argon为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],源码内必须有该主题,要不然编译失败）
+# 把bootstrap替换成design为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[design],源码内必须有该主题,要不然编译失败）
 sed -i 's/luci-theme-bootstrap/luci-theme-design/g' feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-design/g' feeds/luci/collections/luci-nginx/Makefile
 sed -i 's/bootstrap/design/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
