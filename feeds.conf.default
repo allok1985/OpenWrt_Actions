@@ -51,3 +51,5 @@ src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #src-git luci-theme-opentopd https://github.com/sirpdboy/luci-theme-opentopd.git
 #src-git argon https://github.com/jerrykuku/luci-theme-argon.git
 #src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git
+#测速
+src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
