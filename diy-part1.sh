@@ -15,6 +15,8 @@
 
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
+rm -rf ./feeds/luci/applications/luci-app-argon-config
+rm -rf ./package/feeds/luci/luci-app-argon-config
 
 #来源https://github.com/allok1985/openwrt-Exclusive/blob/main/diy5.15.sh
 #============================================================
