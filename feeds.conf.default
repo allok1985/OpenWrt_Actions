@@ -54,4 +54,4 @@ src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #测速
 src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
 #分区扩容
-src-git partexp https://github.com/sirpdboy/luci-app-partexp.git
+#src-git partexp https://github.com/sirpdboy/luci-app-partexp.git
