@@ -15,7 +15,7 @@ src-git kenzok8small https://github.com/kenzok8/small.git
 src-git kenzok8packages https://github.com/kenzok8/openwrt-packages.git
 #src-git kenzok8smallpackage https://github.com/kenzok8/small-package.git
 src-git ziyong https://github.com/firker/diy-ziyong.git
-#src-git siropboy https://github.com/siropboy/sirpdboy-package.git
+src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git
 src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #src-git haiibo https://github.com/haiibo/openwrt-packages.git
 
@@ -52,6 +52,6 @@ src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #src-git argon https://github.com/jerrykuku/luci-theme-argon.git
 #src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git
 #测速
-src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
+#src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
 #分区扩容
 #src-git partexp https://github.com/sirpdboy/luci-app-partexp.git
