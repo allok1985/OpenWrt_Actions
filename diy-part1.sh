@@ -10,17 +10,20 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds/放在更新feeds之前)
 #
 
-#sed -i '/DTS_DIR:=$(LINUX_DIR)/a\BUILD_DATE_PREFIX := $(shell date +'%F')' ./include/image.mk
-#sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(BUILD_DATE_PREFIX)-/g' ./include/image.mk
+# 修改feeds源
+#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+sed -i "s/src-git/src-git-full/g" feeds.conf.default
 
+# 添加feeds源
+#echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
+
+# 删除原始argon主题 --失效？
 rm -rf ./feeds/luci/themes/luci-theme-argon
 rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
 rm -rf ./feeds/luci/applications/luci-app-argon-config
 rm -rf ./package/feeds/luci/luci-app-argon-config
 
-#来源https://github.com/allok1985/openwrt-Exclusive/blob/main/diy5.15.sh
-#============================================================
-#sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
+#示例
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
@@ -36,7 +39,6 @@ rm -rf ./package/feeds/luci/luci-app-argon-config
 #git clone https://github.com/sbwml/openwrt-alist.git package/openwrt-alist
 #git clone https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
 # git clone https://github.com/kiddin9/openwrt-bypass.git package/openwrt-bypass
-
 # git clone https://github.com/project-lede/luci-app-godproxy.git package/luci-app-godproxy
 # git clone https://github.com/garypang13/luci-app-dnsfilter.git package/luci-app-dnsfilter
 # git clone https://github.com/BCYDTZ/luci-app-UUGameAcc.git package/luci-app-UUGameAcc
