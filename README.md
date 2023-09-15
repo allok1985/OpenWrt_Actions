@@ -4,6 +4,8 @@
 ![GitHub Stars](https://img.shields.io/github/stars/allok1985/Actions-OpenWrt.svg?style=flat-square&label=Stars&logo=github)
 ![GitHub Forks](https://img.shields.io/github/forks/allok1985/Actions-OpenWrt.svg?style=flat-square&label=Forks&logo=github)
 
+支持自动升级  服务/简易更新
+
 sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
 
 git clone https://github.com/coolsnowwolf/lede
@@ -19,6 +21,8 @@ make menuconfig
 make download -j8
 
 make V=s -j1
+
+
 
 OPENWRT设置之命令行下简单配置有线和无线
 设置lan ip(即访问路由的ip)
@@ -68,6 +72,8 @@ uci set wireless.@wifi-iface[0].key=[密码]    //设置无线密码
 uci commit    //应用
 
 /etc/init.d/network restart    //重启网络服务
+
+
 
 Build OpenWrt using GitHub Actions
 
