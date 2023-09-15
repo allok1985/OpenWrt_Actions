@@ -57,102 +57,68 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #curl -fsSL https://raw.githubusercontent.com/ywt114/poweroff/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 删除替换默认源插件和添加插件
+#alist更高版本golang
 \rm -rf feeds/packages/lang/golang
 git clone -b 20.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
-git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
-\cp -rf package/lean/op-alist/alist package/lean/alist
-\cp -rf package/lean/op-alist/luci-app-alist package/lean/luci-app-alist
-\rm -rf package/lean/op-alist
-\rm -rf feeds/packages/net/smartdns
-\rm -rf feeds/luci/applications/luci-app-smartdns
-git clone https://github.com/pymumu/openwrt-smartdns feeds/packages/net/smartdns
-git clone -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
-git clone https://github.com/kenzok8/small package/lean/small
-\rm -rf package/lean/small/luci-app-bypass
-\rm -rf package/lean/small/luci-app-vssr
-\rm -rf package/lean/small/luci-app-passwall2
-\rm -rf feeds/packages/net/adguardhome
-\rm -rf feeds/luci/applications/luci-app-adguardhome
-\rm -rf feeds/packages/net/mosdns
-\rm -rf feeds/luci/applications/luci-app-mosdns
-\rm -rf feeds/packages/utils/v2dat
-git clone https://github.com/kenzok8/openwrt-packages package/lean/openwrt-packages
-\cp -rf package/lean/openwrt-packages/luci-app-openclash package/lean/small/luci-app-openclash
-\cp -rf package/lean/openwrt-packages/adguardhome feeds/packages/net/adguardhome
-\cp -rf package/lean/openwrt-packages/luci-app-adguardhome package/lean/luci-app-adguardhome
-\cp -rf package/lean/openwrt-packages/mosdns feeds/packages/net/mosdns
-\cp -rf package/lean/openwrt-packages/luci-app-mosdns package/lean/luci-app-mosdns
-\cp -rf package/lean/openwrt-packages/v2dat feeds/packages/utils/v2dat
-\rm -rf package/lean/openwrt-packages
-\rm -rf feeds/packages/net/socat
-\rm -rf feeds/luci/applications/luci-app-socat
-git clone https://github.com/xiangfeidexiaohuo/openwrt-packages package/lean/openwrt-packages
-\cp -rf package/lean/openwrt-packages/op-socat/socat feeds/packages/net/socat
-\cp -rf package/lean/openwrt-packages/op-socat/luci-app-socat package/lean/luci-app-socat
-\cp -rf package/lean/openwrt-packages/op-homebox/homebox package/lean/homebox
-\cp -rf package/lean/openwrt-packages/op-homebox/luci-app-homebox package/lean/luci-app-homebox
-\rm -rf package/lean/openwrt-packages
-git clone https://github.com/sirpdboy/chatgpt-web package/lean/luci-app-chatgpt
-git clone https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
-sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
-sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
-git clone https://github.com/linkease/istore package/lean/istore
+#git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
+#\cp -rf package/lean/op-alist/alist package/lean/alist
+#\cp -rf package/lean/op-alist/luci-app-alist package/lean/luci-app-alist
+#\rm -rf package/lean/op-alist
+#\rm -rf feeds/packages/net/smartdns
+#\rm -rf feeds/luci/applications/luci-app-smartdns
+#git clone https://github.com/pymumu/openwrt-smartdns feeds/packages/net/smartdns
+#git clone -b lede https://github.com/pymumu/luci-app-smartdns package/lean/luci-app-smartdns
+#git clone https://github.com/kenzok8/small package/lean/small
+#\rm -rf package/lean/small/luci-app-bypass
+#\rm -rf package/lean/small/luci-app-vssr
+#\rm -rf package/lean/small/luci-app-passwall2
+#\rm -rf feeds/packages/net/adguardhome
+#\rm -rf feeds/luci/applications/luci-app-adguardhome
+#\rm -rf feeds/packages/net/mosdns
+#\rm -rf feeds/luci/applications/luci-app-mosdns
+#\rm -rf feeds/packages/utils/v2dat
+#git clone https://github.com/kenzok8/openwrt-packages package/lean/openwrt-packages
+#\cp -rf package/lean/openwrt-packages/luci-app-openclash package/lean/small/luci-app-openclash
+#\cp -rf package/lean/openwrt-packages/adguardhome feeds/packages/net/adguardhome
+#\cp -rf package/lean/openwrt-packages/luci-app-adguardhome package/lean/luci-app-adguardhome
+#\cp -rf package/lean/openwrt-packages/mosdns feeds/packages/net/mosdns
+#\cp -rf package/lean/openwrt-packages/luci-app-mosdns package/lean/luci-app-mosdns
+#\cp -rf package/lean/openwrt-packages/v2dat feeds/packages/utils/v2dat
+#\rm -rf package/lean/openwrt-packages
+#\rm -rf feeds/packages/net/socat
+#\rm -rf feeds/luci/applications/luci-app-socat
+#git clone https://github.com/xiangfeidexiaohuo/openwrt-packages package/lean/openwrt-packages
+#\cp -rf package/lean/openwrt-packages/op-socat/socat feeds/packages/net/socat
+#\cp -rf package/lean/openwrt-packages/op-socat/luci-app-socat package/lean/luci-app-socat
+#\cp -rf package/lean/openwrt-packages/op-homebox/homebox package/lean/homebox
+#\cp -rf package/lean/openwrt-packages/op-homebox/luci-app-homebox package/lean/luci-app-homebox
+#\rm -rf package/lean/openwrt-packages
+#git clone https://github.com/sirpdboy/chatgpt-web package/lean/luci-app-chatgpt
+#git clone https://github.com/sirpdboy/luci-app-autotimeset package/lean/luci-app-autotimeset
+#sed -i 's/control"/system"/g' package/lean/luci-app-autotimeset/luasrc/controller/autotimeset.lua
+#sed -i 's/control]/system]/g' package/lean/luci-app-autotimeset/luasrc/view/autotimeset/log.htm
+#git clone https://github.com/linkease/istore package/lean/istore
 # sed -i 's/+luci-lib-ipkg/+luci-base/g' package/lean/istore/luci/luci-app-store/Makefile
-\cp -rf package/lean/istore/luci package/lean
-\cp -rf package/lean/istore/translations package/lean
-\rm -rf package/lean/istore
-git clone https://github.com/linkease/nas-packages-luci package/lean/nas-packages-luci
-\cp -rf package/lean/nas-packages-luci/luci/* package/lean/luci
-\rm -rf package/lean/nas-packages-luci
-git clone https://github.com/linkease/nas-packages package/lean/nas-packages
-\cp -rf package/lean/nas-packages/network/services/* package/network/services
-\cp -rf package/lean/nas-packages/multimedia package
-\rm -rf package/lean/nas-packages
-git clone https://github.com/ywt114/luci-app-advanced package/lean/luci-app-advanced
-git clone https://github.com/ywt114/luci-app-gpsysupgrade package/lean/luci-app-gpsysupgrade
-sed -i 's/Variable1 = "*.*"/Variable1 = "ywt114"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
-sed -i 's/Variable2 = "*.*"/Variable2 = "OpenWrt"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
-sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64_6.1"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
-sed -i 's/Variable4 = "*.*"/Variable4 = "6.1"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
-sed -i 's/Variable1 = "*.*"/Variable1 = "ywt114"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
-sed -i 's/Variable2 = "*.*"/Variable2 = "OpenWrt"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
-sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64_6.1"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
-sed -i 's/Variable4 = "*.*"/Variable4 = "6.1"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
-
-#rm -rf feeds/kenzok8/luci-app-alist
-#git clone https://github.com/sbwml/luci-app-alist package/alist
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
+#\cp -rf package/lean/istore/luci package/lean
+#\cp -rf package/lean/istore/translations package/lean
+#\rm -rf package/lean/istore
+#git clone https://github.com/linkease/nas-packages-luci package/lean/nas-packages-luci
+#\cp -rf package/lean/nas-packages-luci/luci/* package/lean/luci
+#\rm -rf package/lean/nas-packages-luci
+#git clone https://github.com/linkease/nas-packages package/lean/nas-packages
+#\cp -rf package/lean/nas-packages/network/services/* package/network/services
+#\cp -rf package/lean/nas-packages/multimedia package
+#\rm -rf package/lean/nas-packages
+#git clone https://github.com/ywt114/luci-app-advanced package/lean/luci-app-advanced
+#git clone https://github.com/ywt114/luci-app-gpsysupgrade package/lean/luci-app-gpsysupgrade
+#sed -i 's/Variable1 = "*.*"/Variable1 = "ywt114"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
+#sed -i 's/Variable2 = "*.*"/Variable2 = "OpenWrt"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
+#sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64_6.1"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
+#sed -i 's/Variable4 = "*.*"/Variable4 = "6.1"/g' package/lean/luci-app-gpsysupgrade/luasrc/model/cbi/gpsysupgrade/sysupgrade.lua
+#sed -i 's/Variable1 = "*.*"/Variable1 = "ywt114"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
+#sed -i 's/Variable2 = "*.*"/Variable2 = "OpenWrt"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
+#sed -i 's/Variable3 = "*.*"/Variable3 = "x86_64_6.1"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
+#sed -i 's/Variable4 = "*.*"/Variable4 = "6.1"/g' package/lean/luci-app-gpsysupgrade/root/usr/bin/upgrade.lua
 
 #files目录权限
 #chmod -R 755 files
@@ -160,20 +126,11 @@ git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/l
 #修改时区
 #sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
-#修改主机名
-#sed -i '/uci commit system/i\uci set system.@system[0].hostname='Allok_Routes'' openwrt/package/lean/default-settings/files/zzz-default-settings
-
 #设置密码为空
 #sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' openwrt/package/lean/default-settings/files/zzz-default-settings
 sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-default-settings
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' "$ZZZ_PATH"
 
-#版本号里显示一个自己的名字
-#sed -i "s/OpenWrt /OpenWrt build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-#sed -i "s/OpenWrt /Allok build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-# 增加个性名字 ${Author} 默认为你的github帐号,修改时候把 ${Author} 替换成你要的
-#sed -i "s/OpenWrt /Allok compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
-#sed -i "s/OpenWrt /${Author} compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" "$ZZZ_PATH"
 
 #修改上游DNS
 #sed -i "2i # network config" openwrt/package/lean/default-settings/files/zzz-default-settings
@@ -188,18 +145,6 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 
 
 # Add luci-theme-argon
-#rm -rf ./feeds/kenzok8packages/luci-theme-argon
-#rm -rf ./package/feeds/kenzok8packages/luci-theme-argon
-#rm -rf ./feeds/luci/themes/luci-theme-argon
-#rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
-#svn co https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-#svn co https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-#./scripts/feeds update package/luci-theme-argon
-#./scripts/feeds install -a -f -p package/luci-theme-argon
-#./scripts/feeds update package/luci-theme-argon-config
-#./scripts/feeds install -a -f -p package/luci-theme-argon-config
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
-#git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config
 #if [ ! -d "./package/lean/luci-theme-argon" ]; then git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/lean/luci-theme-argon;   else cd ./package/lean/luci-theme-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 #if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 
@@ -232,18 +177,4 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/
 #uci set firewall.@zone[0].network='lan ipv6'
 #EOF
  
-#https://github.com/xiangfeidexiaohuo/OpenWrt_Build/blob/master/diy/lean/lean2.sh
-#https://github.com/lance65/Actions-OpenWrt/blob/master/Standard.sh
-#https://github.com/allok1985/openwrt-Exclusive/blob/main/diy.sh
-#https://github.com/superman110/Docker-Openwrt-N1/blob/master/old_diy-part2.sh
-#https://github.com/Suct41/OpenWrt/blob/main/diy-part2.sh
-#https://github.com/smallprogram/OpenWrtAction/blob/main/diy_script/diy-part2.sh
-#https://github.com/281677160/build-actions/blob/main/build/Lede_source/diy-part.sh
-#https://github.com/HiJwm/Build-OpenWrt/blob/main/build/Lede_source/diy-part.sh
-#https://github.com/nbMars1980/openwrt/blob/main/diy-part2.sh
-#https://github.com/helmiau/helmiwrt-packages/blob/main/build-ipk/lean-openwrt.sh
-#https://github.com/roacn/Actions-OpenWrt-Lede/blob/581db311ba811d89d9dfdc8e5a7a7ceeb5c4a212/build/X86/diy-part2.sh
-#https://github.com/mebenny/OpenWrt/blob/8a25ad49e4196d98b9fc0876de648c49d797a796/build/X86/diy-part2.sh
-#https://github.com/xpfoxs/Build_OpenWRT/blob/main/user/lean-x64/custom.sh
-
-
+#https://github.com/ywt114/OpenWrt/blob/main/diy-part2_6.1.sh
