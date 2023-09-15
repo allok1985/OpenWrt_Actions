@@ -23,7 +23,7 @@ rm -rf ./package/feeds/luci/Makefile/luci-theme-argon
 rm -rf ./feeds/luci/applications/luci-app-argon-config
 rm -rf ./package/feeds/luci/luci-app-argon-config
 
-#示例
+#示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
