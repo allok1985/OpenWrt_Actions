@@ -44,8 +44,8 @@ src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #易有云
 #src-git istore https://github.com/linkease/istore
 #src-git istore_packages https://github.com/linkease/istore-packages.git;main
-#src-git nas https://github.com/linkease/nas-packages.git;master
-#src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+src-git nas https://github.com/linkease/nas-packages.git;master
+src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
 #主题
 #src-git luci-theme-neobird https://github.com/thinktip/luci-theme-neobird.git
 #src-git luci-theme-opentopd https://github.com/sirpdboy/luci-theme-opentopd.git
