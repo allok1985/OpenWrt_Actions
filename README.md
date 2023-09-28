@@ -9,10 +9,10 @@
 
 - 支持自动升级  服务/简易更新
 - sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
-- git clone https://github.com/coolsnowwolf/lede
 
 ## 编译
 
+- git clone https://github.com/coolsnowwolf/lede
 - cd lede
 - git pull
 - ./scripts/feeds update -a && ./scripts/feeds install -a
@@ -49,7 +49,7 @@
 - /etc/init.d/network restart    //重启网络服务
 
 
-
+## 教程
 Build OpenWrt using GitHub Actions
 
 感谢P3TERX/Actions-OpenWrt提供的工具源码。
