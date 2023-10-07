@@ -18,7 +18,7 @@ src-git ziyong https://github.com/firker/diy-ziyong.git
 src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git
 src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #src-git haiibo https://github.com/haiibo/openwrt-packages.git
-#src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git
+src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git
 
 #----软件----
 #翻墙
