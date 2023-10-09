@@ -11,7 +11,7 @@
 #
 
 # 修改管理地址
-#sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
 
 # 强制切换内核版本5.10/5.15/5.4/6.1
 #sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.1/g" target/linux/x86/Makefile
@@ -63,7 +63,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 #hostapd编译错误
 #\rm -rf package/network/services/hostapd
-
+#https://github.com/openwrt/openwrt/package/network/services/hostapd
 #git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
 #\cp -rf package/lean/op-alist/alist package/lean/alist
 #\cp -rf package/lean/op-alist/luci-app-alist package/lean/luci-app-alist
