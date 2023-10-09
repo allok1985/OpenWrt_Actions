@@ -61,6 +61,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 \rm -rf feeds/packages/lang/golang
 #git clone https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
 git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+#hostapd编译错误
+#\rm -rf package/network/services/hostapd
+
 #git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
 #\cp -rf package/lean/op-alist/alist package/lean/alist
 #\cp -rf package/lean/op-alist/luci-app-alist package/lean/luci-app-alist
