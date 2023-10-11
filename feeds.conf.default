@@ -40,7 +40,7 @@ src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 #sirpdboy动态域名、代理
 #src-git lucky https://github.com/firkerword/luci-app-lucky.git
 #自动更新
-#src-git autoupdate https://github.com/lllrrr2/luci-app-autoupdate
+src-git romupdate https://github.com/Blueplanet20120/luci-app-romupdate.git
 #关机
 #src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git
 #易有云
