@@ -7,7 +7,7 @@
 # https://github.com/smallprogram/OpenWrtAction
 # File: .github/workflows/Update_Checker.yml
 # Description: Source code update checker
-#
+# https://github.com/Lenyu2020/Actions-OpenWrt-x86/blob/main/.github/workflows/update-checker.yml
 
 name: Update_Checker
 
