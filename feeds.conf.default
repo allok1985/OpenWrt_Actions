@@ -59,3 +59,5 @@ src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git
 src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
 #分区扩容
 #src-git partexp https://github.com/sirpdboy/luci-app-partexp.git
+#tailscale
+src-git tailscale https://github.com/Carseason/openwrt-tailscale
