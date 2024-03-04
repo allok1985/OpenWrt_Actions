@@ -56,7 +56,7 @@ src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
 #src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git
 src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git
 #测速
-src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
+#src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git
 #分区扩容
 #src-git partexp https://github.com/sirpdboy/luci-app-partexp.git
 #tailscale
