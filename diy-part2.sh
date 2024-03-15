@@ -31,7 +31,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #取消bootstrap为默认主题
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
-
 # 修改主机名以及一些显示信息
 #sed -i "s/hostname='*.*'/hostname='OpenWrt'/" package/base-files/files/bin/config_generate
 #sed -i "s/DISTRIB_ID='*.*'/DISTRIB_ID='OpenWrt'/g" package/base-files/files/etc/openwrt_release
@@ -59,11 +58,19 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #curl -fsSL https://raw.githubusercontent.com/ywt114/poweroff/main/poweroff.htm > feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/poweroff.htm
 #curl -fsSL https://raw.githubusercontent.com/ywt114/poweroff/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
+#kenzo 库冲突大佬处理
+#sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+#sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
+\rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+./scripts/feeds install -a 
+
 # 删除替换默认源插件和添加插件
 #alist更高版本golang
-\rm -rf feeds/packages/lang/golang
+#\rm -rf feeds/packages/lang/golang
 #git clone https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
-git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+#git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 #hostapd编译错误更换原版https://github.com/coolsnowwolf/lede/pull/11572#issuecomment-1750608547
 #\rm -rf package/network/services/hostapd
 #svn co https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
@@ -157,7 +164,7 @@ sed -i "/CYXluq4wUazHjmCDBCqXF/d" package/lean/default-settings/files/zzz-defaul
 #if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 
 # 把bootstrap替换成argone为源码必选主题（可自行修改您要的,主题名称必须对,比如下面代码的[argone],源码内必须有该主题,要不然编译失败）
-sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
+#sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci/Makefile
 #sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-nginx/Makefile
 #sed -i 's/bootstrap/argone/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
