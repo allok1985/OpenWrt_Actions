@@ -31,8 +31,8 @@ src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
 #src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git
 #src-git vssr https://github.com/jerrykuku/luci-app-vssr
 #DNS
-#src-git smartdns https://github.com/pymumu/smartdns.git
-#src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome
+src-git smartdns https://github.com/pymumu/smartdns.git
+src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome
 #dockerman
 #src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master
 #filebrowser
