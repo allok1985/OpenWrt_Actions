@@ -17,8 +17,8 @@ src-git kenzok8packages https://github.com/kenzok8/openwrt-packages.git
 #src-git kenzok8smallpackage https://github.com/kenzok8/small-package.git
 src-git ziyong https://github.com/firker/diy-ziyong.git
 src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git
-src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
-#src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
+#src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
+src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
 #src-git haiibo https://github.com/haiibo/openwrt-packages.git
 #src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git
 #src-git Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git
