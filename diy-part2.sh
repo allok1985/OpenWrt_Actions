@@ -59,9 +59,13 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #curl -fsSL https://raw.githubusercontent.com/ywt114/poweroff/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 #kenzo 库冲突大佬处理
+#https://github.com/kenzok8/small/issues/148
 #sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
+./scripts/feeds update -a
+\rm -rf feeds/luci/applications/luci-app-mosdns
+#\rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
+\rm -rf feeds/packages/net/{alist,smartdns}
 \rm -rf package/feeds/packages/tailscale
 \rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
