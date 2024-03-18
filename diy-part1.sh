@@ -17,6 +17,18 @@
 # 添加feeds源
 #echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
 
+#kenzo 库冲突大佬处理
+#https://github.com/kenzok8/small/issues/148
+#sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+#sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+#./scripts/feeds update -a
+\rm -rf feeds/luci/applications/luci-app-mosdns
+\rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
+\rm -rf package/feeds/packages/tailscale
+\rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#./scripts/feeds install -a 
+
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
