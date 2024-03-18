@@ -11,7 +11,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 
 #----软件仓库----
 src-git lienol https://github.com/Lienol/openwrt-package.git;main
-#kenzok仓库冲突见diy-part2
+#kenzok仓库冲突见diy-part1
 src-git kenzok8small https://github.com/kenzok8/small.git
 src-git kenzok8packages https://github.com/kenzok8/openwrt-packages.git
 #src-git kenzok8smallpackage https://github.com/kenzok8/small-package.git
