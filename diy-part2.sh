@@ -67,6 +67,16 @@ git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/l
 #\rm -rf package/network/services/hostapd
 #svn co https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
 
+#https://github.com/kenzok8/small中xray-core
+# 移除 openwrt feeds 自带的核心包
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
+# 更新 golang 1.22 版本
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+
+
+
 #git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
 #\cp -rf package/lean/op-alist/alist package/lean/alist
 #\cp -rf package/lean/op-alist/luci-app-alist package/lean/luci-app-alist
