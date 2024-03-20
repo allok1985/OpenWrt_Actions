@@ -27,7 +27,7 @@ sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf
 #kenzo 库冲突大佬处理
 #https://github.com/kenzok8/small/issues/148
 
-#添加feeds源-sbwml
+#添加feeds源-sbwml/kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
