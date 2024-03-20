@@ -15,6 +15,9 @@
 #sed -i "s/src-git/src-git-full/g" feeds.conf.default
 # 添加feeds源
 #echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
+# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+# sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
+# sed -i '$a src-git bypass https://github.com/garypang13/openwrt-bypass' feeds.conf.default
 
 #添加feeds源-kenzo
 sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
@@ -37,9 +40,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
-# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-# sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
-# sed -i '$a src-git bypass https://github.com/garypang13/openwrt-bypass' feeds.conf.default
 # mv -vf ../mt7621_phicomm_k2p.dts ./target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 #　git clone https://github.com/vernesong/OpenClash.git package/OpenClash
 #svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive-webdav
