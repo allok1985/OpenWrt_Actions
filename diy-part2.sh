@@ -75,7 +75,9 @@ git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/l
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
-
+#
+#https://github.com/kenzok8/small/issues/148#issuecomment-1999543382
+sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 #git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
 #\cp -rf package/lean/op-alist/alist package/lean/alist
