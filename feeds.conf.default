@@ -9,6 +9,10 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-git oldpackages http://git.openwrt.org/packages.git
 #src-link custom /usr/src/openwrt/custom-feed
 
+#feeds源转diy
+#src-git kenzo https://github.com/kenzok8/openwrt-packages
+#ssrc-git small https://github.com/kenzok8/small
+
 #----软件仓库----
 #src-git lienol https://github.com/Lienol/openwrt-package.git;main
 #src-git ziyong https://github.com/firker/diy-ziyong.git
@@ -58,3 +62,4 @@ src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git
 #src-git partexp https://github.com/sirpdboy/luci-app-partexp.git
 #tailscale
 #src-git tailscale https://github.com/Carseason/openwrt-tailscale
+
