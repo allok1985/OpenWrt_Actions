@@ -10,7 +10,6 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds/放在更新feeds之前)
 #
 
-
 #修改添加feeds源
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # sed -i "s/src-git/src-git-full/g" feeds.conf.default
@@ -18,25 +17,19 @@
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 # sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
-# sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-sed -i '3i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
+# sed -i '3i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
 sed -i '4i https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 #kenzo 库冲突大佬处理
 #https://github.com/kenzok8/small/issues/148
-./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
-rm -rf feeds/packages/utils/v2dat
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-./scripts/feeds install -a 
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
 #rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 #添加feeds源-sbwml/kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
-# rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
-# git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 # 更新 golang 1.22 版本
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
