@@ -17,10 +17,10 @@
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 # sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
-sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-# sed -i '3i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
-sed -i '4i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
+sed -i '11i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
+# sed -i '13i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
+sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 #kenzo 库冲突大佬处理
 #https://github.com/kenzok8/small/issues/148
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
