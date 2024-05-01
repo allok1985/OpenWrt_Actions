@@ -21,6 +21,8 @@ sed -i '11i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.con
 # sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
 # sed -i '13i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
 sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
+# sed -i '15i src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
+# sed -i '16i src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
 #kenzo 库冲突大佬处理
 #https://github.com/kenzok8/small/issues/148
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
