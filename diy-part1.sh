@@ -27,48 +27,41 @@ sed -i '16i src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' f
 sed -i '18i src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '19i kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
-#kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
-./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-#kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
-#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
-# Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
+# 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
 # rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 # git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 # 更新 golang 1.22 版本
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-
-#翻墙
+# 翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 # sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.default
 # sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' feeds.conf.default
 # sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
-#DNS
+# DNS
 sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
 # sed -i '$a src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome' feeds.conf.default
-#dockerman
+# dockerman
 # sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master' feeds.conf.default
 #filebrowser
 # sed -i '$a src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master' feeds.conf.default
-#信息推送
+# 信息推送
 # sed -i '$a src-git serverchan https://github.com/tty228/luci-app-serverchan.git' feeds.conf.default
 #sirpdboy动态域名、代理
 # sed -i '$a src-git lucky https://github.com/firkerword/luci-app-lucky.git' feeds.conf.default
-#自动更新
+# 自动更新
 sed -i '$a src-git romupdate https://github.com/Blueplanet20120/luci-app-romupdate.git' feeds.conf.default
-#关机
+# 关机
 # sed -i '$a src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git' feeds.conf.default
-#易有云
+# 易有云
 # sed -i '$a src-git istore https://github.com/linkease/istore' feeds.conf.default
 # sed -i '$a src-git istore_packages https://github.com/linkease/istore-packages.git;main' feeds.conf.default
 sed -i '$a src-git nas https://github.com/linkease/nas-packages.git;master' feeds.conf.default
 sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' feeds.conf.default
-#主题
+# 主题
 # sed -i '$a src-git luci-theme-neobird https://github.com/thinktip/luci-theme-neobird.git' feeds.conf.default
 # sed -i '$a src-git luci-theme-opentopd https://github.com/sirpdboy/luci-theme-opentopd.git' feeds.conf.default
 # sed -i '$a src-git argon https://github.com/jerrykuku/luci-theme-argon.git' feeds.conf.default
@@ -82,6 +75,13 @@ sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-conf
 # sed -i '$a src-git partexp https://github.com/sirpdboy/luci-app-partexp.git' feeds.conf.default
 #tailscale
 # sed -i '$a src-git tailscale https://github.com/Carseason/openwrt-tailscale' feeds.conf.default
+
+#kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
+./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
+#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
