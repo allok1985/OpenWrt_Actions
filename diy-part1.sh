@@ -57,18 +57,43 @@ src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
 #src-git Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git
 
 #翻墙
-#src-git helloworld https://github.com/fw876/helloworld
-#src-git OpenClash https://github.com/vernesong/OpenClash
-#src-git passwall https://github.com/xiaorouji/openwrt-passwall.git
-#src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git
-#src-git vssr https://github.com/jerrykuku/luci-app-vssr
-#--
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 # sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.default
 # sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' feeds.conf.default
 # sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
-
+#DNS
+sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
+# sed -i '$a src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome' feeds.conf.default
+#dockerman
+# sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master' feeds.conf.default
+#filebrowser
+# sed -i '$a src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master' feeds.conf.default
+#信息推送
+# sed -i '$a src-git serverchan https://github.com/tty228/luci-app-serverchan.git' feeds.conf.default
+#sirpdboy动态域名、代理
+# sed -i '$a src-git lucky https://github.com/firkerword/luci-app-lucky.git' feeds.conf.default
+#自动更新
+sed -i '$a src-git romupdate https://github.com/Blueplanet20120/luci-app-romupdate.git' feeds.conf.default
+#关机
+# sed -i '$a src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git' feeds.conf.default
+#易有云
+# sed -i '$a src-git istore https://github.com/linkease/istore' feeds.conf.default
+# sed -i '$a src-git istore_packages https://github.com/linkease/istore-packages.git;main' feeds.conf.default
+sed -i '$a src-git nas https://github.com/linkease/nas-packages.git;master' feeds.conf.default
+sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' feeds.conf.default
+#主题
+# sed -i '$a src-git luci-theme-neobird https://github.com/thinktip/luci-theme-neobird.git' feeds.conf.default
+# sed -i '$a src-git luci-theme-opentopd https://github.com/sirpdboy/luci-theme-opentopd.git' feeds.conf.default
+# sed -i '$a src-git argon https://github.com/jerrykuku/luci-theme-argon.git' feeds.conf.default
+# sed -i '$a src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git' feeds.conf.default
+sed -i '$a src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
+#测速
+# sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
+#分区扩容
+# sed -i '$a src-git partexp https://github.com/sirpdboy/luci-app-partexp.git' feeds.conf.default
+#tailscale
+# sed -i '$a src-git tailscale https://github.com/Carseason/openwrt-tailscale' feeds.conf.default
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
