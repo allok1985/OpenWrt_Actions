@@ -18,23 +18,26 @@
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 # sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 sed -i '11i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-# sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
+sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
 # sed -i '13i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
 sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 # sed -i '15i src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
 # sed -i '16i src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
 #kenzo 库冲突大佬处理
 #https://github.com/kenzok8/small/issues/148
+./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
 #rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 # Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
-rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
-git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
+# rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+# git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 # 更新 golang 1.22 版本
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+# rm -rf feeds/packages/lang/golang
+# git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
 #feeds源转diy
 #src-git smpackage https://github.com/kenzok8/small-package
