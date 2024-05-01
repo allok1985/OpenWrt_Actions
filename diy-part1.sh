@@ -43,19 +43,6 @@ git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
-#feeds源转diy-
-#src-git smpackage https://github.com/kenzok8/small-package
-#src-git kenzo https://github.com/kenzok8/openwrt-packages
-#ssrc-git small https://github.com/kenzok8/small
-#src-git haiibo https://github.com/haiibo/openwrt-packages.git
-#src-git lienol https://github.com/Lienol/openwrt-package.git;main
-#src-git ziyong https://github.com/firker/diy-ziyong.git
-#src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git
-#src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
-#src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
-#src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git
-#src-git Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git
-
 #翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 # sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.default
