@@ -18,7 +18,7 @@
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 # sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 sed -i '11i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
+# sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
 # sed -i '13i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
 sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 #kenzo 库冲突大佬处理
@@ -28,8 +28,8 @@ sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' f
 
 #添加feeds源-sbwml/kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
-# rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
-# git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 # 更新 golang 1.22 版本
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
