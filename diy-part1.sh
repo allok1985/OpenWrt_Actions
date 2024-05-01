@@ -36,6 +36,14 @@ git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
+#feeds源转diy
+#src-git smpackage https://github.com/kenzok8/small-package
+#src-git kenzo https://github.com/kenzok8/openwrt-packages
+#ssrc-git small https://github.com/kenzok8/small
+#src-git haiibo https://github.com/haiibo/openwrt-packages.git
+#src-git lienol https://github.com/Lienol/openwrt-package.git;main
+#src-git ziyong https://github.com/firker/diy-ziyong.git
+
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
 # mv -vf ../mt7621_phicomm_k2p.dts ./target/linux/ramips/dts/mt7621_phicomm_k2p.dts
