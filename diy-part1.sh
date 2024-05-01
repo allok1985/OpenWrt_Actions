@@ -74,7 +74,8 @@ sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;ma
 # sed -i '$a src-git argon https://github.com/jerrykuku/luci-theme-argon.git' feeds.conf.default
 # sed -i '$a src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git' feeds.conf.default
 sed -i '$a src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
-sed -i '$a src-git themeargone git clone -b 23 https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
+sed -i '$a src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
+sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-config' feeds.conf.default
 #测速
 # sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
 #分区扩容
