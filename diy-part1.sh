@@ -23,8 +23,7 @@ sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
 sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 # sed -i '15i src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
 # sed -i '16i src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
-#kenzo 库冲突大佬处理
-#https://github.com/kenzok8/small/issues/148
+#kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
 ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
