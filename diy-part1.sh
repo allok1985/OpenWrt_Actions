@@ -26,7 +26,7 @@ sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' f
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
 #rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
-#添加feeds源-sbwml/kenzo-small的备用
+# Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
