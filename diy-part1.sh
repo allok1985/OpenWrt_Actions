@@ -17,15 +17,15 @@
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 # sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
-sed -i '11i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
-# sed -i '13i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
-# sed -i '14i src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
-# sed -i '15i src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
-sed -i '16i src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
-# sed -i '17i src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
-sed -i '18i src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
-# sed -i '19i kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
+sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+# sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
+# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
+# sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
+sed -i '$a src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
+# sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
+sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
+# sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
 
 # 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
