@@ -20,14 +20,13 @@
 sed -i '11i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '12i src-git small https://github.com/kenzok8/small' feeds.conf.default
 # sed -i '13i src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
-sed -i '14i src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
-# sed -i '15i src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
-# sed -i '16i src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
-sed -i '17i src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
-# sed -i '18i src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
-sed -i '19i src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
-# sed -i '20i kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
-# sed -i '21i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
+# sed -i '14i src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
+# sed -i '15i src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
+sed -i '16i src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
+# sed -i '17i src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
+sed -i '18i src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
+# sed -i '19i kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
+# sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
 #kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
 ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
 rm -rf feeds/packages/lang/golang
@@ -75,6 +74,7 @@ sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;ma
 # sed -i '$a src-git argon https://github.com/jerrykuku/luci-theme-argon.git' feeds.conf.default
 # sed -i '$a src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git' feeds.conf.default
 sed -i '$a src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
+sed -i '$a src-git themeargone git clone -b 23 https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 #测速
 # sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
 #分区扩容
