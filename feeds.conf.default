@@ -9,20 +9,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-git oldpackages http://git.openwrt.org/packages.git
 #src-link custom /usr/src/openwrt/custom-feed
 
-#----软件仓库----
-src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git
-#src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
-src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
-#src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git
-#src-git Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git
 
-#----软件----
-#翻墙
-#src-git helloworld https://github.com/fw876/helloworld
-#src-git OpenClash https://github.com/vernesong/OpenClash
-#src-git passwall https://github.com/xiaorouji/openwrt-passwall.git
-#src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git
-#src-git vssr https://github.com/jerrykuku/luci-app-vssr
 #DNS
 src-git smartdns https://github.com/pymumu/smartdns.git
 #src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome
