@@ -56,6 +56,20 @@ src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages
 #src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git
 #src-git Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git
 
+#翻墙
+#src-git helloworld https://github.com/fw876/helloworld
+#src-git OpenClash https://github.com/vernesong/OpenClash
+#src-git passwall https://github.com/xiaorouji/openwrt-passwall.git
+#src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git
+#src-git vssr https://github.com/jerrykuku/luci-app-vssr
+#--
+# sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+# sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.default
+# sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' feeds.conf.default
+# sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
+# sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
+
+
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
 # mv -vf ../mt7621_phicomm_k2p.dts ./target/linux/ramips/dts/mt7621_phicomm_k2p.dts
