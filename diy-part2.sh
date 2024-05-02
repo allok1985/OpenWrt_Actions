@@ -60,9 +60,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 
 # 删除替换默认源插件和添加插件
 #alist更高版本golang
-\rm -rf feeds/packages/lang/golang
+#\rm -rf feeds/packages/lang/golang
 #git clone https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
-git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+#git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 #hostapd编译错误更换原版https://github.com/coolsnowwolf/lede/pull/11572#issuecomment-1750608547
 #\rm -rf package/network/services/hostapd
 #svn co https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
