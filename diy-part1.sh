@@ -16,9 +16,9 @@
 # echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
-# sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
+# sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+# sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 # sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
 # sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
@@ -42,8 +42,8 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 # sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
 # DNS
-sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
-sed -i '$a src-git lucismartdns https://github.com/pymumu/luci-app-smartdns' feeds.conf.default
+# sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
+# sed -i '$a src-git lucismartdns https://github.com/pymumu/luci-app-smartdns' feeds.conf.default
 # sed -i '$a src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome' feeds.conf.default
 # dockerman
 # sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master' feeds.conf.default
