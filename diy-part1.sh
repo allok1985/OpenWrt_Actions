@@ -15,7 +15,7 @@
 # sed -i "s/src-git/src-git-full/g" feeds.conf.default
 # echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-# sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
+#过期 sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
