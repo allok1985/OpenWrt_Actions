@@ -71,7 +71,7 @@ sed -i '$a src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds
 sed -i '$a src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-config' feeds.conf.default
 #测速
-# sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
+sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
 #分区扩容
 # sed -i '$a src-git partexp https://github.com/sirpdboy/luci-app-partexp.git' feeds.conf.default
 #tailscale
@@ -88,14 +88,14 @@ sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-conf
 # Add a feed source
 # mv -vf ../mt7621_phicomm_k2p.dts ./target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 #　git clone https://github.com/vernesong/OpenClash.git package/OpenClash
-#svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive-webdav
-#svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
-#svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
-#sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
-#svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
-#git clone https://github.com/QiuSimons/openwrt-mos.git package/openwrt-mos
-#git clone https://github.com/sbwml/openwrt-alist.git package/openwrt-alist
-#git clone https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
+# svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive-webdav
+# svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+# svn co https://github.com/linkease/istore/trunk/luci/luci-app-store package/luci-app-store
+# sed -i 's/luci-lib-ipkg/luci-base/g' package/luci-app-store/Makefile
+# svn co https://github.com/linkease/istore-ui/trunk/app-store-ui package/app-store-ui
+# git clone https://github.com/QiuSimons/openwrt-mos.git package/openwrt-mos
+# git clone https://github.com/sbwml/openwrt-alist.git package/openwrt-alist
+# git clone https://github.com/thinktip/luci-theme-neobird.git package/luci-theme-neobird
 # git clone https://github.com/kiddin9/openwrt-bypass.git package/openwrt-bypass
 # git clone https://github.com/project-lede/luci-app-godproxy.git package/luci-app-godproxy
 # git clone https://github.com/garypang13/luci-app-dnsfilter.git package/luci-app-dnsfilter
