@@ -35,6 +35,13 @@ sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt
 # 更新 golang 1.22 版本
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+#kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
+# ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
+# rm -rf feeds/packages/lang/golang
+# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
+#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+
 # 翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 # sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.default
@@ -76,13 +83,6 @@ sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' fe
 # sed -i '$a src-git partexp https://github.com/sirpdboy/luci-app-partexp.git' feeds.conf.default
 #tailscale
 # sed -i '$a src-git tailscale https://github.com/Carseason/openwrt-tailscale' feeds.conf.default
-
-#kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
-# ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
-# rm -rf feeds/packages/lang/golang
-# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-#kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
