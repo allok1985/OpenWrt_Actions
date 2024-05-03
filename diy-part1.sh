@@ -82,7 +82,7 @@ sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' fe
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
-# rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
