@@ -77,7 +77,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 
 #
 #https://github.com/kenzok8/small/issues/148#issuecomment-1999543382
-sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
+#sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 #git clone https://github.com/sbwml/luci-app-alist package/lean/op-alist
 #\cp -rf package/lean/op-alist/alist package/lean/alist
