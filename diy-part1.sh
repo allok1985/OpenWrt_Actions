@@ -63,11 +63,11 @@ sed -i '$a src-git romupdate https://github.com/Blueplanet20120/luci-app-romupda
 sed -i '$a src-git nas https://github.com/linkease/nas-packages.git;master' feeds.conf.default
 sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' feeds.conf.default
 # 主题
-# sed -i '$a src-git luci-theme-neobird https://github.com/thinktip/luci-theme-neobird.git' feeds.conf.default
-# sed -i '$a src-git luci-theme-opentopd https://github.com/sirpdboy/luci-theme-opentopd.git' feeds.conf.default
-# sed -i '$a src-git argon https://github.com/jerrykuku/luci-theme-argon.git' feeds.conf.default
-# sed -i '$a src-git argonc https://github.com/jerrykuku/luci-app-argon-config.git' feeds.conf.default
-sed -i '$a src-git kucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
+# sed -i '$a src-git themeneobird https://github.com/thinktip/luci-theme-neobird.git' feeds.conf.default
+# sed -i '$a src-git themeopentopd https://github.com/sirpdboy/luci-theme-opentopd.git' feeds.conf.default
+sed -i '$a src-git themeargon https://github.com/jerrykuku/luci-theme-argon.git' feeds.conf.default
+sed -i '$a src-git themeargonc https://github.com/jerrykuku/luci-app-argon-config.git' feeds.conf.default
+sed -i '$a src-git themekucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
 sed -i '$a src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-config' feeds.conf.default
 #测速
