@@ -75,6 +75,21 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
+
+
+# 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
+# 移除 openwrt feeds 自带的核心包
+# rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+# git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
+# 更新 golang 1.22 版本
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+#kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
+# ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
+# rm -rf feeds/packages/lang/golang
+# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 #编译miniupnpd出错，https://github.com/kenzok8/small-package/issues/134
 rm -rf feeds/smpackage/miniupnpd-iptables&& rm -rf package/feeds/smpackage/miniupnpd-iptables
 
