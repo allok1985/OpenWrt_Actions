@@ -75,6 +75,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
+#编译miniupnpd出错，https://github.com/kenzok8/small-package/issues/134
+rm -rf feeds/smpackage/miniupnpd-iptables&& rm -rf package/feeds/smpackage/miniupnpd-iptables
+
 #
 #https://github.com/kenzok8/small/issues/148#issuecomment-1999543382
 #sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
