@@ -33,6 +33,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  # 删除无用文件以增加编译空间
   DELETE_USELESS_FILES: true
 
 jobs:
