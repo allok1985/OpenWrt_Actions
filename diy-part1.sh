@@ -23,8 +23,8 @@ sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.con
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
 # sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
 sed -i '$a src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
-# sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
-sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
+sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
+# sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
 
