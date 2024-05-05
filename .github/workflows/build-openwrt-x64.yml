@@ -33,6 +33,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  DELETE_USELESS_FILES: true
 
 jobs:
   build:
@@ -75,6 +76,7 @@ jobs:
         remove-docker-images: 'true'
 
     - name: Free Disk Space (Ubuntu)
+      if: env.DELETE_USELESS_FILES == 'true' && !cancelled()
       uses: jlumbroso/free-disk-space@main
       with:
         tool-cache: true
