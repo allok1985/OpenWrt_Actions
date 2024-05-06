@@ -59,23 +59,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argone/g' feeds/luci/collections/luci-
 #curl -fsSL https://raw.githubusercontent.com/ywt114/poweroff/main/system.lua > feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/system.lua
 
 # 删除替换默认源插件和添加插件
-#alist更高版本golang
-#\rm -rf feeds/packages/lang/golang
-#git clone https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang feeds/packages/lang/golang
-#git clone -b 21.x https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 #hostapd编译错误更换原版https://github.com/coolsnowwolf/lede/pull/11572#issuecomment-1750608547
 #\rm -rf package/network/services/hostapd
 #svn co https://github.com/openwrt/openwrt/trunk/package/network/services/hostapd package/network/services/hostapd
-
-#https://github.com/kenzok8/small中xray-core
-# 移除 openwrt feeds 自带的核心包
-#rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
-#git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
-# 更新 golang 1.22 版本
-#rm -rf feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
-
-
 
 # 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
