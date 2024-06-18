@@ -9,7 +9,7 @@
 
 - 支持自动升级  服务/简易更新
 - wget -P /tmp https://mirror.ghproxy.com/https://github.com/allok1985/Actions-OpenWrt/releases/download/OpenWrt_20240617_162242_5e72ead/openwrt-x86-64-generic-squashfs-combined.img.gz
-- sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
+  sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
   
 - sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
 
