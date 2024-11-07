@@ -15,7 +15,10 @@
 - sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
 - 修正会默认主题
 - vi /etc/config/luci
-- 
+- i编辑
+- config core 'main'
+- option mediaurlbase '/luci-static/bootstrap'
+- ESC :wq
 
 ## 编译
 
