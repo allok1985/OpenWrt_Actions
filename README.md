@@ -13,6 +13,9 @@
 - sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
   
 - sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
+修正会默认主题
+- vi /etc/config/luci
+- 
 
 ## 编译
 
