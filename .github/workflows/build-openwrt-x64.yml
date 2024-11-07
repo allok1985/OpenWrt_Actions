@@ -235,6 +235,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
+        df -hT $PWD
         #echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=3.hour >> release.txt
