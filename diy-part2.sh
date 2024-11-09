@@ -11,21 +11,20 @@
 #
 
 # 修改管理地址
-sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
+# sed -i 's/192.168.1.1/192.168.1.1/g' package/base-files/files/bin/config_generate
 
 # 强制切换内核版本5.10/5.15/5.4/6.1
-#sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.1/g" target/linux/x86/Makefile
-#sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=6.1/g" target/linux/x86/Makefile
+# sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=6.1/g" target/linux/x86/Makefile
+# sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=6.1/g" target/linux/x86/Makefile
 
 # 交换LAN/WAN口
-#sed -i 's/"eth1 eth2" "eth0"/"eth1 eth2" "eth0"/g' target/linux/x86/base-files/etc/board.d/02_network
-#sed -i "s/'eth1 eth2' 'eth0'/'eth1 eth2' 'eth0'/g" target/linux/x86/base-files/etc/board.d/02_network
-#sed -i "s/lan 'eth0'/lan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
-#sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
-#sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
+# sed -i 's/"eth1 eth2" "eth0"/"eth1 eth2" "eth0"/g' target/linux/x86/base-files/etc/board.d/02_network
+# sed -i "s/'eth1 eth2' 'eth0'/'eth1 eth2' 'eth0'/g" target/linux/x86/base-files/etc/board.d/02_network
+# sed -i "s/lan 'eth0'/lan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
+# sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
+# sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
 
-# 修改默认皮肤luci-theme-argon-mod/luci-theme-argone
-#第二条？
+# 修改默认皮肤luci-theme-argon-mod/luci-theme-argone 第二条？
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-nginx/Makefile
@@ -91,9 +90,9 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+#rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 #编译miniupnpd出错，https://github.com/kenzok8/small-package/issues/134
-rm -rf feeds/smpackage/miniupnpd-iptables&& rm -rf package/feeds/smpackage/miniupnpd-iptables
+#rm -rf feeds/smpackage/miniupnpd-iptables&& rm -rf package/feeds/smpackage/miniupnpd-iptables
 
 #
 #https://github.com/kenzok8/small/issues/148#issuecomment-1999543382
