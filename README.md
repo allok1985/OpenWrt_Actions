@@ -11,9 +11,8 @@
 - 手动更新
 - wget -P /tmp https://ghp.ci/https://github.com/allok1985/Actions-OpenWrt/releases/latest/download/openwrt-x86-64-generic-squashfs-combined.img.gz
 - sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
-  
-- sysupgrade -v /opt/openwrt-x86-64-generic-squashfs-combined.img
-- 修正会默认主题
+
+- 修正回默认主题
 - vi /etc/config/luci
 - i编辑
 - config core 'main'
