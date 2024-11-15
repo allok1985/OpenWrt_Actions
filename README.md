@@ -9,7 +9,7 @@
 
 - 支持自动升级  服务/简易更新
 - 手动更新
-- wget -P /tmp https://ghp.ci/https://github.com/allok1985/Actions-OpenWrt/releases/latest/download/openwrt-x86-64-generic-squashfs-combined.img.gz
+- wget -P /tmp https://github.com/allok1985/Actions-OpenWrt/releases/latest/download/openwrt-x86-64-generic-squashfs-combined.img.gz
 - sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
 
 - 修正回默认主题
