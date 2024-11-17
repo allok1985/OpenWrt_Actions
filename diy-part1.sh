@@ -14,8 +14,10 @@
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # sed -i "s/src-git/src-git-full/g" feeds.conf.default
 # echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
+# 老竭力-旧版本
+# sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
+# Lienol
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-#过期 sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 # kenzok8软件仓库/smpackage 常用OpenWrt软件包源码合集，同步上游更新/openwrt-packages openwrt常用软件包/small ssr passwall homeprxoy及依赖
 sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
@@ -28,8 +30,6 @@ sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
-# 老竭力
-# sed -i '$a src-git jerrykuku https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 
 # 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
@@ -59,7 +59,7 @@ rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftabl
 # sed -i '$a src-git lucismartdns https://github.com/pymumu/luci-app-smartdns' feeds.conf.default
 # sed -i '$a src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome' feeds.conf.default
 # dockerman
-# sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master' feeds.conf.default
+sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master' feeds.conf.default
 #filebrowser
 # sed -i '$a src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master' feeds.conf.default
 # 信息推送
