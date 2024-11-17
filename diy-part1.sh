@@ -24,11 +24,11 @@ sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.con
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 # 包含网络速度/定时设置/lucky大吉/一键扩容/网络设置向导
 sed -i '$a src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
-
+# 旧版本
 # sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
-
+# 较多主题及插件合集
 # sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
-
+# sundaqiang自制的openwrt插件/简易更新/Nginx管理器/进程管理器/网络唤醒++
 sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
