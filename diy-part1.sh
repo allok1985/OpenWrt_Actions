@@ -91,6 +91,8 @@ sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' fe
 sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
 # 流量统计
 sed -i '$a src-git bandwidthd https://github.com/AlexZhuo/luci-app-bandwidthd' feeds.conf.default
+# 应用程序过滤器
+sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feeds.conf.default
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
