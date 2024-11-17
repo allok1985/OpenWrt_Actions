@@ -22,10 +22,13 @@
 sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
-# sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
-# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package.git;main' feeds.conf.default
-# sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
+# 包含网络速度/定时设置/lucky大吉/一键扩容/网络设置向导
 sed -i '$a src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
+
+# sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
+
+# sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
+
 sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
@@ -83,6 +86,7 @@ sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;ma
 sed -i '$a src-git themekucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
 # sed -i '$a src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 # sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-config' feeds.conf.default
+sed -i '$a src-git themeinfinityfreedom https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom' feeds.conf.default
 # 测速
 sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
 # 分区扩容
@@ -95,6 +99,8 @@ sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.c
 sed -i '$a src-git bandwidthd https://github.com/AlexZhuo/luci-app-bandwidthd' feeds.conf.default
 # 应用程序过滤器
 sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feeds.conf.default
+# iKoolProxy是基于KoolProxyR广告过滤
+sed -i '$a src-git luci-app-ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
