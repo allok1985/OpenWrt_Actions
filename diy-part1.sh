@@ -28,6 +28,8 @@ sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
+# 老竭力
+# sed -i '$a src-git jerrykuku https://github.com/jerrykuku/openwrt-package' feeds.conf.default
 
 # 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
