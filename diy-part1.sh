@@ -67,7 +67,7 @@ rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftabl
 # 自动更新
 sed -i '$a src-git romupdate https://github.com/Blueplanet20120/luci-app-romupdate.git' feeds.conf.default
 # 关机
-# sed -i '$a src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git' feeds.conf.default
+sed -i '$a src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git' feeds.conf.default
 # 易有云
 # sed -i '$a src-git istore https://github.com/linkease/istore' feeds.conf.default
 # sed -i '$a src-git istore_packages https://github.com/linkease/istore-packages.git;main' feeds.conf.default
@@ -81,14 +81,16 @@ sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;ma
 sed -i '$a src-git themekucat https://github.com/sirpdboy/luci-theme-kucat.git' feeds.conf.default
 # sed -i '$a src-git themeargone https://github.com/kenzok78/luci-theme-argone' feeds.conf.default
 # sed -i '$a src-git themeargonec https://github.com/kenzok78/luci-app-argone-config' feeds.conf.default
-#测速
+# 测速
 sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' feeds.conf.default
-#分区扩容
+# 分区扩容
 # sed -i '$a src-git partexp https://github.com/sirpdboy/luci-app-partexp.git' feeds.conf.default
-#tailscale
+# tailscale
 # sed -i '$a src-git tailscale https://github.com/Carseason/openwrt-tailscale' feeds.conf.default
-#5G模块支持
+# 5G模块支持
 sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
+# 流量统计
+sed -i '$a src-git bandwidthd https://github.com/AlexZhuo/luci-app-bandwidthd' feeds.conf.default
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
