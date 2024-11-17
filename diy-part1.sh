@@ -16,6 +16,7 @@
 # echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 #过期 sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
+# kenzok8软件仓库/smpackage 常用OpenWrt软件包源码合集，同步上游更新/openwrt-packages openwrt常用软件包/small ssr passwall homeprxoy及依赖
 sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
@@ -27,8 +28,6 @@ sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
-#5G模块支持
-# sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
 
 # 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
 # 移除 openwrt feeds 自带的核心包
@@ -88,6 +87,8 @@ sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' fe
 # sed -i '$a src-git partexp https://github.com/sirpdboy/luci-app-partexp.git' feeds.conf.default
 #tailscale
 # sed -i '$a src-git tailscale https://github.com/Carseason/openwrt-tailscale' feeds.conf.default
+#5G模块支持
+sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # Add a feed source
