@@ -252,20 +252,20 @@ jobs:
         df -hT $PWD
         #echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
-        sed -i '**This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**' release.txt
-        sed -i '### 📒 固件信息' release.txt
-        sed -i '- 💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}' release.txt
-        sed -i '- ⚽ 固件源码: ${{ env.REPO_URL }}' release.txt
-        sed -i '- 💝 源码分支: ${{ env.REPO_BRANCH }}' release.txt
-        sed -i '- 🚀 内核版本: ${{ env.KERNEL }}' release.txt
-        sed -i '- 🌐 默认地址: 192.168.1.1' release.txt
-        sed -i '- 🔑 默认密码: password' release.txt
-        sed -i '### 🧊 固件版本' release.txt
-        sed -i '- 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录' release.txt
-        sed -i '- ${{ env.COMMIT_AUTHOR }}' release.txt
-        sed -i '- ${{ env.COMMIT_DATE }}
-        sed -i '- ${{ env.COMMIT_MESSAGE }}' release.txt
-        sed -i '- ${{ env.COMMIT_HASH }}' release.txt
+        sed -i '$a **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**' release.txt
+        sed -i '$a ### 📒 固件信息' release.txt
+        sed -i '$a - 💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}' release.txt
+        sed -i '$a - ⚽ 固件源码: ${{ env.REPO_URL }}' release.txt
+        sed -i '$a - 💝 源码分支: ${{ env.REPO_BRANCH }}' release.txt
+        sed -i '$a - 🚀 内核版本: ${{ env.KERNEL }}' release.txt
+        sed -i '$a - 🌐 默认地址: 192.168.1.1' release.txt
+        sed -i '$a - 🔑 默认密码: password' release.txt
+        sed -i '$a ### 🧊 固件版本' release.txt
+        sed -i '$a - 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录' release.txt
+        sed -i '$a - ${{ env.COMMIT_AUTHOR }}' release.txt
+        sed -i '$a - ${{ env.COMMIT_DATE }}
+        sed -i '$a - ${{ env.COMMIT_MESSAGE }}' release.txt
+        sed -i '$a - ${{ env.COMMIT_HASH }}' release.txt
         
         git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=96.hour >> release.txt
         git -C openwrt/feeds/packages log --pretty=format:"%s(#By %an)"  --graph --since=48.hour >> release.txt
