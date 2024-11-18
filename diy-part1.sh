@@ -46,12 +46,10 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 # rm -rf feeds/packages/lang/golang
 # git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package  #20241118 miniupnpd报错
-rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb，miniupnpd}
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 #kenzo 库syncthing报错 20241107换源
 #rm -rf feeds/smpackage/luci-app-syncthing
 #git clone https://github.com/Turing-China/luci-app-syncthing feeds/smpackage/luci-app-syncthing
-#20241118 miniupnpd报错
-#rm -rf package/feeds/packages/miniupnpd
 
 # 翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
