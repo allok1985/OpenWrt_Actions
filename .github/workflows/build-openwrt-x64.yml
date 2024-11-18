@@ -118,7 +118,6 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        df -hT
 
     - name: Clone source code
       working-directory: /workdir
@@ -185,11 +184,11 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        df -hT
 
     - name: Compile the firmware
       id: compile
       run: |
+        df -hT $PWD
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j8 || make -j8 V=s
