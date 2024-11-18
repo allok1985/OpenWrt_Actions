@@ -252,6 +252,8 @@ jobs:
         df -hT $PWD
         #echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        touch release.txt
+        # sed -i '1i ## Firmware Update Log' release.txt
         sed -i '$a **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**' release.txt
         sed -i '$a ### 📒 固件信息' release.txt
         sed -i '$a - 💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}' release.txt
@@ -276,8 +278,7 @@ jobs:
         #git -C openwrt/feeds/passwall log --pretty=format:"%s(#By %an)"  --graph --since=48.hour >> release.txt
         #git -C openwrt/package/luci-app-openclash log --pretty=format:"%s(#By %an)"  --graph --since=48.hour >> release.txt
         test  ! -s release.txt && echo -e "\n* The source code is not updated." >> release.txt
-        sed -i '1i ## Firmware Update Log' release.txt
-        touch release.txt
+              
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
