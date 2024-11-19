@@ -245,7 +245,7 @@ jobs:
         df -hT $PWD
         #echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
-        git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=3.hour >> release.txt
+        git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
         git -C openwrt/feeds/packages log --pretty=format:"%s(#By %an)"  --graph --since=3.hour >> release.txt
         git -C openwrt/feeds/luci log --pretty=format:"%s(#By %an)"  --graph --since=3.hour >> release.txt
         #git -C openwrt/feeds/routing log --pretty=format:"%s(#By %an)"  --graph --since=3.hour >> release.txt
@@ -255,7 +255,7 @@ jobs:
         #git -C openwrt/package/luci-app-openclash log --pretty=format:"%s(#By %an)"  --graph --since=8.hour >> release.txt
         test  ! -s release.txt && echo -e "\n* The source code is not updated." >> release.txt
         #sed -i '1i ## Firmware Update Log' release.txt
-        sed -i '1i **This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**' release.txt
+        sed -i '1i ** This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }} **' release.txt
         touch release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
