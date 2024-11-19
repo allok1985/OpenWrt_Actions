@@ -153,7 +153,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        df -hT
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -170,11 +169,11 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        df -hT
 
     - name: Compile the firmware
       id: compile
       run: |
+        df -hT $PWD
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j8 || make -j8 V=s
