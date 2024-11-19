@@ -47,6 +47,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 # git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #kenzo 库冲突大佬处理2_https://github.com/kenzok8/small-package
 rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
+rm -rf package/feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 #kenzo 库syncthing报错 20241107换源
 #rm -rf feeds/smpackage/luci-app-syncthing
 #git clone https://github.com/Turing-China/luci-app-syncthing feeds/smpackage/luci-app-syncthing
