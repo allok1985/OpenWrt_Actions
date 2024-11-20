@@ -190,6 +190,11 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        #cd $OPENWRT_PATH
+        $GITHUB_WORKSPACE/$DIY_SCRIPT
+        $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
+        $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
+        $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh $CLASH_KERNEL
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -290,8 +295,9 @@ jobs:
         #git -C openwrt/feeds/helloworld log --pretty=format:"%s(#By %an)"  --graph --since=4.hour >> release.txt
         #git -C openwrt/feeds/passwall log --pretty=format:"%s(#By %an)"  --graph --since=8.hour >> release.txt
         #git -C openwrt/package/luci-app-openclash log --pretty=format:"%s(#By %an)"  --graph --since=8.hour >> release.txt
-        test  ! -s release.txt && echo -e "\n* The source code is not updated." >> release.txt
+        #test  ! -s release.txt && echo -e "\n* The source code is not updated." >> release.txt
         #sed -i '1i ## Firmware Update Log' release.txt
+        
         touch release.txt
         echo "**This is OpenWrt Firmware for ${{ env.RELEASE_TAG }}**" >> release.txt
         echo "  ### 📒 固件信息" >> release.txt
@@ -307,6 +313,7 @@ jobs:
         echo "  - ${{ env.COMMIT_DATE }}" >> release.txt
         echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
         echo "  - ${{ env.COMMIT_HASH }}" >> release.txt
+        
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
