@@ -52,8 +52,7 @@ rm -rf package/feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftn
 #rm -rf feeds/smpackage/luci-app-syncthing
 #git clone https://github.com/Turing-China/luci-app-syncthing feeds/smpackage/luci-app-syncthing
 # 20241120 miniupnpd报错
-rm -rf package/feeds/packages/miniupnpd
-rm -rf package/feeds/packages/{miniupnpd,miniupnpd-iptables}
+# rm -rf package/feeds/packages/{miniupnpd,miniupnpd-iptables}
 
 # 翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
