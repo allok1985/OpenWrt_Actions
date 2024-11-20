@@ -270,8 +270,21 @@ jobs:
         #git -C openwrt/package/luci-app-openclash log --pretty=format:"%s(#By %an)"  --graph --since=8.hour >> release.txt
         test  ! -s release.txt && echo -e "\n* The source code is not updated." >> release.txt
         #sed -i '1i ## Firmware Update Log' release.txt
-        sed -i '1i ** This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }} **' release.txt
         touch release.txt
+        echo "**This is OpenWrt Firmware for ${{ env.FIRMWARE_TAG }}**" >> release.txt
+        echo "  ### 📒 固件信息" >> release.txt
+        echo "  - 💻 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}" >> release.txt
+        echo "  - ⚽ 固件源码: ${{ env.REPO_URL }}" >> release.txt
+        echo "  - 💝 源码分支: ${{ env.REPO_BRANCH }}" >> release.txt
+        echo "  - 🚀 内核版本: ${{ env.KERNEL }}" >> release.txt
+        echo "  - 🌐 默认地址: 192.168.1.1" >> release.txt
+        echo "  - 🔑 默认密码: password" >> release.txt
+        echo "  ### 🧊 固件版本" >> release.txt
+        echo "  - 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录" >> release.txt
+        echo "  - ${{ env.COMMIT_AUTHOR }}" >> release.txt
+        echo "  - ${{ env.COMMIT_DATE }}" >> release.txt
+        echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
+        echo "  - ${{ env.COMMIT_HASH }}" >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
