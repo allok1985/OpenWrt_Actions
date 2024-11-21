@@ -106,6 +106,7 @@ sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feed
 sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
+# https://github.com/haiibo/OpenWrt/blob/main/diy-script.sh
 # Add a feed source
 # mv -vf ../mt7621_phicomm_k2p.dts ./target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 #　git clone https://github.com/vernesong/OpenClash.git package/OpenClash
