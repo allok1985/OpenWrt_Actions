@@ -10,6 +10,8 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds/放在更新feeds之前)
 #
 
+##############################################################################################
+
 #修改添加feeds源
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # sed -i "s/src-git/src-git-full/g" feeds.conf.default
@@ -31,6 +33,8 @@ sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
+
+##############################################################################################
 
 # 翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
@@ -83,6 +87,8 @@ sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feed
 # iKoolProxy是基于KoolProxyR广告过滤
 sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
 
+##############################################################################################
+
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
   branch="$1" repourl="$2" && shift 2
@@ -102,6 +108,8 @@ function git_sparse_clone() {
 # git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-filebrowser luci-app-ssr-mudb-server
 # git_sparse_clone openwrt-18.06 https://github.com/immortalwrt/luci applications/luci-app-eqos
 # git_sparse_clone master https://github.com/syb999/openwrt-19.07.1 package/network/services/msd_lite
+
+##############################################################################################
 
 ### 插件报错修复
 # 翻墙Psswall&SSRP插件防炸上游备份-sbwml / kenzo-small的备用
@@ -123,6 +131,8 @@ rm -rf package/feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftn
 #git clone https://github.com/Turing-China/luci-app-syncthing feeds/smpackage/luci-app-syncthing
 # 20241120 miniupnpd报错
 # rm -rf package/feeds/packages/{miniupnpd,miniupnpd-iptables}
+
+##############################################################################################
 
 #示例https://github.com/ywt114/OpenWrt/blob/main/diy-part1.sh
 # https://github.com/haiibo/OpenWrt/blob/main/diy-script.sh
