@@ -1,15 +1,15 @@
 # Actions-OpenWrt
 
-[![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/allok1985/Actions-OpenWrt/blob/master/LICENSE)
-![GitHub Stars](https://img.shields.io/github/stars/allok1985/Actions-OpenWrt.svg?style=flat-square&label=Stars&logo=github)
-![GitHub Forks](https://img.shields.io/github/forks/allok1985/Actions-OpenWrt.svg?style=flat-square&label=Forks&logo=github)
+[![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/allok1985/OpenWrt_x86_64_Actions/blob/master/LICENSE)
+![GitHub Stars](https://img.shields.io/github/stars/allok1985/OpenWrt_x86_64_Actions.svg?style=flat-square&label=Stars&logo=github)
+![GitHub Forks](https://img.shields.io/github/forks/allok1985/OpenWrt_x86_64_Actions.svg?style=flat-square&label=Forks&logo=github)
 
 
 ## 升级
 
 - 支持自动升级  服务/简易更新
 - 手动更新
-- wget -P /tmp https://github.com/allok1985/Actions-OpenWrt/releases/latest/download/openwrt-x86-64-generic-squashfs-combined.img.gz
+- wget -P /tmp https://github.com/allok1985/OpenWrt_x86_64_Actions/releases/latest/download/openwrt-x86-64-generic-squashfs-combined.img.gz
 - sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
 
 - 修正回默认主题
