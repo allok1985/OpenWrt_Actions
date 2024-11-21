@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # ywt114/free-disk-space@main jlumbroso/free-disk-space
 
-name: Build OpenWrt x64
+name: Build OpenWrt x86_64
 
 on:
   repository_dispatch:
@@ -23,10 +23,10 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x64.config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
-  RELEASE_TAG: X86_64
+  CONFIG_FILE: x86_64.config
+  DIY_P1_SH: diy-x86_64-part1.sh
+  DIY_P2_SH: diy-x86_64-part2.sh
+  RELEASE_TAG: x86_64
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -153,7 +153,7 @@ jobs:
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: 'x64'
+        mixkey: 'x86_64'
         prefix: 'openwrt'
 
     - name: Load custom feeds
