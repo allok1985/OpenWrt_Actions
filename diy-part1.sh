@@ -10,13 +10,33 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds/放在更新feeds之前)
 #
 
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
+# 添加额外插件 https://github.com/haiibo/OpenWrt/blob/main/diy-script.sh
+# git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+# git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
+# git clone --depth=1 https://github.com/ilxp/luci-app-ikoolproxy package/luci-app-ikoolproxy
+# git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+# git clone --depth=1 https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+# git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
+# git_sparse_clone main https://github.com/Lienol/openwrt-package luci-app-filebrowser luci-app-ssr-mudb-server
+# git_sparse_clone openwrt-18.06 https://github.com/immortalwrt/luci applications/luci-app-eqos
+# git_sparse_clone master https://github.com/syb999/openwrt-19.07.1 package/network/services/msd_lite
+
+
 #修改添加feeds源
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # sed -i "s/src-git/src-git-full/g" feeds.conf.default
-# echo 'src-git helloworld https://github.com/fw876/helloworld.git' >> feeds.conf.default
-# 老竭力-旧版本
+# jerryk老竭力旧版本/Lienol
 # sed -i '$a src-git jerryk https://github.com/jerrykuku/openwrt-package' feeds.conf.default
-# Lienol
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # kenzok8软件仓库/smpackage 常用OpenWrt软件包源码合集，同步上游更新/openwrt-packages openwrt常用软件包/small ssr passwall homeprxoy及依赖
 sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
@@ -24,7 +44,6 @@ sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.con
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 # 包含网络速度/定时设置/lucky大吉/一键扩容/网络设置向导
 sed -i '$a src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
-# 旧版本
 # sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
 # 较多主题及插件合集
 # sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
