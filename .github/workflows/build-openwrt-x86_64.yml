@@ -7,6 +7,7 @@
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 # ywt114/free-disk-space@main jlumbroso/free-disk-space
+# https://github.com/haiibo/OpenWrt/blob/main/.github/workflows/X86_64-OpenWrt.yml
 
 name: Build OpenWrt x86_64
 
@@ -256,7 +257,8 @@ jobs:
         mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
         tar -zcf Packages.tar.gz packages
         #rm -rf packages feeds.buildinfo version.buildinfo
-        rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums
+        #rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums
+        rm -rf packages *.buildinfo *kernel.bin *rootfs.img.gz profiles.json sha256sums
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         #echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
