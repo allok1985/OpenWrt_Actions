@@ -16,9 +16,9 @@ env:
   REPO_BRANCH_Lede: master
   REPO_PATH_Lede : "lede"
   
-  REPO_URL_smpackage: https://github.com/kenzok8/small-package
-  REPO_BRANCH_smpackage: main
-  REPO_PATH_smpackage : "smpackage"
+  REPO_URL_Smpackage: https://github.com/kenzok8/small-package
+  REPO_BRANCH_Smpackage: main
+  REPO_PATH_Smpackage : "smpackage"
 
   REPO_URL_PassWall: https://github.com/xiaorouji/openwrt-passwall
   REPO_BRANCH_PassWall: main
@@ -45,9 +45,9 @@ jobs:
         echo "commitHash_Lede=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
         cd
 
-        git clone --depth 1 $REPO_URL_smpackage -b $REPO_BRANCH_HelloWorld $REPO_PATH_smpackage 
-        cd $REPO_PATH_smpackage
-        echo "commitHash_smpackage=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        git clone --depth 1 $REPO_URL_Smpackage -b $REPO_BRANCH_Smpackage $REPO_PATH_Smpackage
+        cd $REPO_PATH_Smpackage
+        echo "commitHash_Smpackage=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
         cd
 
         git clone --depth 1 $REPO_URL_PassWall -b $REPO_BRANCH_PassWall $REPO_PATH_PassWall
@@ -59,11 +59,11 @@ jobs:
       id: combHeader
       run: |
         echo "commitHash_Lede: ${{ steps.getHash.outputs.commitHash_Lede }}"
-        echo "commitHash_smpackage: ${{ steps.getHash.outputs.commitHash_smpackage }}"
+        echo "commitHash_Smpackage: ${{ steps.getHash.outputs.commitHash_Smpackage }}"
         echo "commitHash_PassWall: ${{ steps.getHash.outputs.commitHash_PassWall }}"
         echo "commitHash_All=\
           ${{steps.getHash.outputs.commitHash_Lede}}\
-          ${{steps.getHash.outputs.commitHash_smpackage}}\
+          ${{steps.getHash.outputs.commitHash_Smpackage}}\
           ${{steps.getHash.outputs.commitHash_PassWall}}" >> $GITHUB_OUTPUT
 
     - name: Compare Commit Hash
@@ -78,7 +78,7 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.getHash.outputs.commitHash_Lede }} | tee .commitHash_Lede
-        echo ${{ steps.getHash.outputs.commitHash_smpackage }} | tee .commitHash_smpackage
+        echo ${{ steps.getHash.outputs.commitHash_Smpackage }} | tee .commitHash_Smpackage
         echo ${{ steps.getHash.outputs.commitHash_PassWall }} | tee .commitHash_PassWall
         echo ${{ steps.combHeader.outputs.commitHash_All }} | tee .commitHash_All   
         
