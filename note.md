@@ -1,4 +1,12 @@
+## 编译
 
+- git clone https://github.com/coolsnowwolf/lede
+- cd lede
+- git pull
+- ./scripts/feeds update -a && ./scripts/feeds install -a
+- make menuconfig
+- make download -j8
+- make V=s -j1
 
 
 ## 升级
