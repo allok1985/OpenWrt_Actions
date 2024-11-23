@@ -12,16 +12,6 @@
 - wget -P /tmp https://github.com/allok1985/OpenWrt_Actions/releases/latest/download/openwrt-x86-64-generic-squashfs-combined.img.gz
 - sysupgrade -v /tmp/openwrt-x86-64-generic-squashfs-combined.img.gz
 
-## 编译
-
-- git clone https://github.com/coolsnowwolf/lede
-- cd lede
-- git pull
-- ./scripts/feeds update -a && ./scripts/feeds install -a
-- make menuconfig
-- make download -j8
-- make V=s -j1
-
 
 ## 教程
 Build OpenWrt using GitHub Actions
