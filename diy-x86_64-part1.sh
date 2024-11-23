@@ -33,6 +33,7 @@ sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git
 # sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
+sed -i '$a src-git NueXini https://github.com/NueXini/NueXini_Packages' feeds.conf.default
 
 ##############################################################################################
 
