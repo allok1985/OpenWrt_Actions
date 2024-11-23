@@ -43,6 +43,7 @@ sed -i '$a src-git NueXini https://github.com/NueXini/NueXini_Packages' feeds.co
 # sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' feeds.conf.default
 # sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
+sed -i '$a src-git v2rayA https://github.com/v2rayA/v2raya-openwrt' feeds.conf.default
 # DNS
 # sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
 # sed -i '$a src-git lucismartdns https://github.com/pymumu/luci-app-smartdns' feeds.conf.default
