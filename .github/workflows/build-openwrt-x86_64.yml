@@ -246,8 +246,8 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       #if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true'
       with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: ${{ env.FIRMWARE }}
+        name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: ${{ env.OPENWRT_PATH }}/bin/targets/
 
     - name: Organize files
       id: organize
