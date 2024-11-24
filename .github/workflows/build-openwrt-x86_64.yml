@@ -243,7 +243,7 @@ jobs:
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true'
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
@@ -269,8 +269,6 @@ jobs:
         echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
         #echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-
-
 
     - name: Upload firmware to cowtransfer
       id: cowtransfer
