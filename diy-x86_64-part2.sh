@@ -33,15 +33,14 @@ sed -i 's/luci-static\/bootstrap/luci-static\/argon/g'  feeds/luci/modules/luci-
 sed -i 's/luci-static\/design/luci-static\/argon/g'  feeds/luci/modules/luci-base/root/etc/config/luci
 #取消bootstrap为默认主题
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-
 #sed -i 's/bootstrap/argone/g' ./feeds/luci/modules/luci-base/root/etc/config/luci
 #sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 # 编译多主题时,设置固件默认主题（可自行修改您要的,主题名称必须对,比如下面代码的[argon],和肯定编译了该主题,要不然进不了后台）
-#sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
+sed -i "/exit 0/i\uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci" "$FIN_PATH"
+# uci set luci.main.mediaurlbase='/luci-static/argon' && uci commit luci
 # Add luci-theme-argon
-#if [ ! -d "./package/lean/luci-theme-argon" ]; then git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/lean/luci-theme-argon;   else cd ./package/lean/luci-theme-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
-#if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
-
+if [ ! -d "./package/lean/luci-theme-argon" ]; then git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/lean/luci-theme-argon;   else cd ./package/lean/luci-theme-argon; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
+if [ ! -d "./package/lean/luci-app-argon-config" ]; then git clone https://github.com/jerrykuku/luci-app-argon-config.git ./package/lean/luci-app-argon-config;   else cd ./package/lean/luci-app-argon-config; git stash; git stash drop; git pull; cd ..; cd ..; cd ..; fi;
 
 
 # 修改主机名以及一些显示信息
