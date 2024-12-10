@@ -45,6 +45,8 @@ sed -i '$a src-git NueXini https://github.com/NueXini/NueXini_Packages' feeds.co
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
 sed -i '$a src-git v2rayA https://github.com/v2rayA/v2raya-openwrt' feeds.conf.default
 #sed -i '$a src-git nekobox https://github.com/Thaolga/openwrt-nekobox' feeds.conf.default
+# 组网
+sed -i '$a src-git easytier https://github.com/EasyTier/luci-app-easytier.git' feeds.conf.default
 # DNS
 # sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
 # sed -i '$a src-git lucismartdns https://github.com/pymumu/luci-app-smartdns' feeds.conf.default
