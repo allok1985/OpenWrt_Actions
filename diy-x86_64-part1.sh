@@ -136,9 +136,9 @@ rm -rf package/feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftn
 #git clone https://github.com/Turing-China/luci-app-syncthing feeds/smpackage/luci-app-syncthing
 # 20241120 miniupnpd报错
 # rm -rf package/feeds/packages/{miniupnpd,miniupnpd-iptables}
-#package/feeds/smpackage/luci-app-godproxy failed to build.
-rm -rf feeds/smpackage/luci-app-godproxy
-rm -rf package/feeds/smpackage/luci-app-godproxy
+# package/feeds/smpackage/luci-app-godproxy failed to build./20241211取消测试
+# rm -rf feeds/smpackage/luci-app-godproxy
+# rm -rf package/feeds/smpackage/luci-app-godproxy
 
 ##############################################################################################
 
