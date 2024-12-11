@@ -43,6 +43,9 @@ jobs:
 
     steps:
 
+    - name: Show Ubuntu Version
+      run: echo "The Ubuntu version is $IMAGE"
+      
     - name: Check Server Performance
       run: |
         echo "警告⚠"
