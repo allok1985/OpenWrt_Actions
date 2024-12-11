@@ -102,7 +102,7 @@ jobs:
       run: |
         df -hT
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
-        sudo docker image prune --all --force
+        #sudo docker image prune --all --force
         sudo -E apt-get -qq update
         sudo -E apt-get -qq full-upgrade
         sudo -E apt-get -qq install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
