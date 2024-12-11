@@ -46,7 +46,8 @@ jobs:
     - name: Show Ubuntu Version
       run: |
         echo "The Ubuntu version is $IMAGE"
-      
+        echo "系统版本: $(cat /etc/lsb-release)"
+              
     - name: Check Server Performance
       run: |
         echo "警告⚠"
