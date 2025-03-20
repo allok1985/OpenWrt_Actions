@@ -96,6 +96,7 @@ rm -rf package/feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftn
 # rm -rf package/feeds/packages/{miniupnpd,miniupnpd-iptables}
 # 20250318 xray-core报错
 rm -rf package/feeds/packages/xray-core
+rm -rf package/feeds/packages/geoview
 
 #
 #https://github.com/kenzok8/small/issues/148#issuecomment-1999543382
