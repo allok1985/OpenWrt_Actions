@@ -90,7 +90,7 @@ sed -i '$a src-git bandwidthd https://github.com/AlexZhuo/luci-app-bandwidthd' f
 # 应用程序过滤器
 sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feeds.conf.default
 # iKoolProxy是基于KoolProxyR广告过滤
-sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
+# sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
 
 ##############################################################################################
 
