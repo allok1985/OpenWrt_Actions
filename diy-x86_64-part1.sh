@@ -57,7 +57,7 @@ sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;ma
 # sed -i '$a src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master' feeds.conf.default
 # 信息推送
 # sed -i '$a src-git serverchan https://github.com/tty228/luci-app-serverchan.git' feeds.conf.default
-#sirpdboy动态域名、代理
+# sirpdboy动态域名、代理
 # sed -i '$a src-git lucky https://github.com/firkerword/luci-app-lucky.git' feeds.conf.default
 # 自动更新
 sed -i '$a src-git romupdate https://github.com/Blueplanet20120/luci-app-romupdate.git' feeds.conf.default
@@ -95,14 +95,14 @@ sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds
 ##############################################################################################
 
 # Git稀疏克隆，只克隆指定目录到本地
-#function git_sparse_clone() {
-#  branch="$1" repourl="$2" && shift 2
-#  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
-#  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
-#  cd $repodir && git sparse-checkout set $@
-#  mv -f $@ ../package
-#  cd .. && rm -rf $repodir
-#}
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
 # 添加额外插件 https://github.com/haiibo/OpenWrt/blob/main/diy-script.sh
 # git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 # git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
@@ -122,8 +122,8 @@ sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds
 # rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 # git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 # 更新 golang 1.22 版本
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+## rm -rf feeds/packages/lang/golang
+## git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 #kenzo 库冲突大佬处理1_https://github.com/kenzok8/small/issues/148
 # ./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
 # rm -rf feeds/packages/lang/golang
