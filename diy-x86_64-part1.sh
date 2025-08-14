@@ -84,7 +84,7 @@ sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' fe
 # tailscale
 # sed -i '$a src-git tailscale https://github.com/Carseason/openwrt-tailscale' feeds.conf.default
 # 5G模块支持
-sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
+# sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.conf.default
 # 流量统计
 # sed -i '$a src-git bandwidthd https://github.com/AlexZhuo/luci-app-bandwidthd' feeds.conf.default
 # 应用程序过滤器
