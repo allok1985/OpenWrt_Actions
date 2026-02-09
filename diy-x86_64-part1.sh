@@ -88,7 +88,7 @@ sed -i '$a src-git 5gmodem https://github.com/Siriling/5G-Modem-Support' feeds.c
 # 流量统计
 sed -i '$a src-git bandwidthd https://github.com/AlexZhuo/luci-app-bandwidthd' feeds.conf.default
 # 应用程序过滤器
-sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feeds.conf.default
+# sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feeds.conf.default
 # iKoolProxy是基于KoolProxyR广告过滤
 # sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
 
