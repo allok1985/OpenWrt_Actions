@@ -163,10 +163,22 @@ jobs:
 
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+        # 检查自定义feeds配置文件是否存在，存在则替换
+        if [ -f "$FEEDS_CONF" ]; then
+            mv -f "$FEEDS_CONF" openwrt/feeds.conf.default
+            echo "✅ 自定义feeds配置 $FEEDS_CONF 已替换为 openwrt/feeds.conf.default"
+        else
+            echo "⚠️  自定义feeds配置 $FEEDS_CONF 不存在，使用源码默认feeds配置"
+        fi
+        # 检查DIY_P1_SH脚本是否存在，存在则赋予执行权限并运行
+        if [ -f "$DIY_P1_SH" ]; then
+            chmod +x "$DIY_P1_SH"
+            cd $OPENWRT_PATH
+            $GITHUB_WORKSPACE/$DIY_P1_SH
+            echo "✅ 自定义脚本 $DIY_P1_SH 已赋予执行权限并成功运行"
+        else
+            echo "⚠️  自定义脚本 $DIY_P1_SH 不存在，跳过脚本执行"
+        fi
         df -hT
 
     - name: Update feeds
@@ -190,11 +202,29 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        [ -e files ] && mv files $OPENWRT_PATH/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
-        chmod +x $DIY_P2_SH
-        cd $OPENWRT_PATH
-        $GITHUB_WORKSPACE/$DIY_P2_SH
+        # 检查自定义files目录是否存在，存在则移动
+        if [ -d "files" ]; then
+            mv -f "files" "$OPENWRT_PATH/files"
+            echo "✅ 自定义files目录已成功移动到 $OPENWRT_PATH/files"
+        else
+            echo "⚠️  自定义files目录不存在，跳过目录移动"
+        fi
+        # 检查配置文件是否存在，存在则重新覆盖
+        if [ -f "$CONFIG_FILE" ]; then
+            mv -f "$CONFIG_FILE" "$OPENWRT_PATH/.config"
+            echo "✅ 配置文件 $CONFIG_FILE 已重新覆盖到 $OPENWRT_PATH/.config"
+        else
+            echo "⚠️  配置文件 $CONFIG_FILE 不存在，跳过重新覆盖"
+        fi
+        # 检查DIY_P2_SH脚本是否存在，存在则赋权并执行
+        if [ -f "$DIY_P2_SH" ]; then
+            chmod +x "$DIY_P2_SH"
+            cd $OPENWRT_PATH
+            $GITHUB_WORKSPACE/$DIY_P2_SH
+            echo "✅ 自定义脚本 $DIY_P2_SH 已赋予执行权限并成功运行"
+        else
+            echo "⚠️  自定义脚本 $DIY_P2_SH 不存在，跳过脚本执行"
+        fi
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
