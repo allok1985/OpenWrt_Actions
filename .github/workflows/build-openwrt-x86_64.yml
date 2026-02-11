@@ -273,14 +273,15 @@ jobs:
       run: |
         set -euo pipefail
         shopt -s globstar nullglob
-        firmware_files=(openwrt/bin/targets/**/**/openwrt-*.bin openwrt/bin/targets/**/**/openwrt-*.trx openwrt/bin/**/**/openwrt-*.img)
+        # 检查指定文件，任意一个存在即通过
+        firmware_files=(openwrt/bin/targets/**/**/*.buildinfo openwrt/bin/targets/**/**/*.manifest openwrt/bin/targets/**/**/*kernel.bin openwrt/bin/targets/**/**/*rootfs.img.gz openwrt/bin/targets/**/**/profiles.json openwrt/bin/targets/**/**/sha256sums)
         if [ ${#firmware_files[@]} -gt 0 ]; then
         echo "firmware_exists=true" >> "$GITHUB_OUTPUT"
         echo "firmware_candidates=${firmware_files[*]}" >> "$GITHUB_OUTPUT"
         else
         echo "firmware_exists=false" >> "$GITHUB_OUTPUT"
         fi
-
+    
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.fw_check.outputs.firmware_exists == 'true' && env.UPLOAD_BIN_DIR == 'true' && !cancelled()
