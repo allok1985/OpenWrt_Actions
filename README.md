@@ -18,5 +18,5 @@ Build OpenWrt using GitHub Actions
 
 感谢P3TERX/Actions-OpenWrt提供的工具源码。
 
-[Read the details in my blog (in Chinese) | 中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
+[Read the details in P3TERX blog (in Chinese) | 中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
