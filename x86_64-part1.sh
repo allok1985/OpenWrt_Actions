@@ -35,8 +35,9 @@ sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.con
 # sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
 # sed -i '$a src-git nekobox https://github.com/Thaolga/openwrt-nekobox' feeds.conf.default
-# sed -i '$a src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main' feeds.conf.default
-# sed -i '$a src-git passwall_luci https://github.com/Openwrt-Passwall/openwrt-passwall.git;main' feeds.conf.default
+sed -i '$a src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main' feeds.conf.default
+sed -i '$a src-git passwall_luci https://github.com/Openwrt-Passwall/openwrt-passwall.git;main' feeds.conf.default
+sed -i '$a src-git passwall2_luci https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main' feeds.conf.default
 # 组网
 sed -i '$a src-git easytier https://github.com/EasyTier/luci-app-easytier' feeds.conf.default
 # DNS
