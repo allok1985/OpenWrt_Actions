@@ -34,7 +34,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   # 删除无用文件以增加编译空间
-  DELETE_USELESS_FILES: false
+  DELETE_USELESS_FILES: true
   # 检查编译文件是否存在
   FW_CHECK: true
 
