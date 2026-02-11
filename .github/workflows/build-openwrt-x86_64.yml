@@ -10,7 +10,6 @@
 # https://github.com/haiibo/OpenWrt/blob/main/.github/workflows/X86_64-OpenWrt.yml
 
 name: Build OpenWrt x86_64
-
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -42,7 +41,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
            
     - name: Check Server Performance
@@ -89,7 +87,6 @@ jobs:
       uses: jlumbroso/free-disk-space@main
       with:
         tool-cache: true
-        #tool-cache: false
         android: true
         dotnet: true
         haskell: true
@@ -105,14 +102,12 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         df -hT
-        #sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
-        #sudo docker image prune --all --force
         sudo -E apt-get -qq update
         sudo -E apt-get -qq full-upgrade
         sudo -E apt-get -qq install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
         bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gettext gcc-multilib g++-multilib \
         git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev libgmp3-dev \
-        libltdl-dev libmpc-dev libmpfr-dev libncurses-dev libncurses-dev libpython3-dev libreadline-dev \
+        libltdl-dev libmpc-dev libmpfr-dev libncurses-dev libpython3-dev libreadline-dev \
         libssl-dev libtool llvm lrzsz genisoimage msmtp ninja-build p7zip p7zip-full patch pkgconf python3 \
         python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion swig texinfo \
         uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
@@ -122,7 +117,7 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         df -hT
-
+ 
     - name: Clone source code
       working-directory: /workdir
       run: |
@@ -139,7 +134,6 @@ jobs:
         echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
         COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
         echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
-
     - name: Generate Variables
       run: |
         cp $CONFIG_FILE $OPENWRT_PATH/.config
@@ -177,13 +171,13 @@ jobs:
       run: |
         TEMP=$(date +"OpenWrt_x86_64_%Y%m%d_%H%M%S_")$(git rev-parse --short HEAD)
         echo "RELEASE_TAG=$TEMP" >> $GITHUB_ENV
-        #required>>add "DISTRIB_GITHUB" to "zzz-default-settings"
+        # Add DISTRIB_GITHUB to openwrt_release
         sed -i "/DISTRIB_DESCRIPTION=/a\sed -i '/DISTRIB_GITHUB/d' /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
         sed -i "/DISTRIB_GITHUB/a\echo \"DISTRIB_GITHUB=\'https://github.com/${{github.repository}}\'\" >> /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
-        #required>>add "DISTRIB_VERSIONS" to "zzz-default-settings"
+        # Add DISTRIB_VERSIONS to openwrt_release
         sed -i "/DISTRIB_DESCRIPTION=/a\sed -i '/DISTRIB_VERSIONS/d' /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
         sed -i "/DISTRIB_VERSIONS/a\echo \"DISTRIB_VERSIONS=\'${TEMP:8}\'\" >> /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
-        #nonessential>>add "github.actor" to "DISTRIB_DESCRIPTION" in "zzz-default-settings"
+        # Modify DISTRIB_DESCRIPTION
         sed -i "s/OpenWrt /${{github.actor}} compiled (${TEMP:8}) \/ OpenWrt /g" openwrt/package/lean/default-settings/files/zzz-default-settings
 
     - name: Load custom configuration
@@ -217,7 +211,6 @@ jobs:
         cd $OPENWRT_PATH
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j8 || make -j8 V=s
-        #echo "::set-output name=status::success"
         echo "status=success" >> $GITHUB_OUTPUT
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
@@ -252,41 +245,34 @@ jobs:
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
-      if: steps.fw_check.outputs.firmware_exists == 'true' && env.UPLOAD_BIN_DIR == 'true'
-      # if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      if: steps.fw_check.outputs.firmware_exists == 'true' && env.UPLOAD_BIN_DIR == 'true' && !cancelled()
       with:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.OPENWRT_PATH }}/bin
 
-    - name: Upload firmware directory
-      uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
-      #if: steps.compile.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true'
-      with:
-        name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: ${{ env.OPENWRT_PATH }}/bin/targets/
-
     - name: Organize files
       id: organize
-      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      if: steps.fw_check.outputs.firmware_exists == 'true' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        #cd openwrt/bin/targets/*/*
-        #rm -rf packages
-        #echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        ##echo "::set-output name=status::success"
-        #echo "status=success" >> $GITHUB_OUTPUT
-
         cd $OPENWRT_PATH/bin/targets/*/*
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
-        mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages
-        tar -zcf Packages.tar.gz packages
-        #rm -rf packages feeds.buildinfo version.buildinfo
-        #rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums
-        rm -rf packages *.buildinfo *kernel.bin *rootfs.img.gz profiles.json sha256sums
-        echo "KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ')" >> $GITHUB_ENV
-        #echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
+        if [ -d $OPENWRT_PATH/bin/packages ]; then
+          mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages/ 2>/dev/null || true
+          tar -zcf Packages.tar.gz packages/ 2>/dev/null || true
+        fi
+        rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums 2>/dev/null || true
+        KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ' 2>/dev/null || echo "unknown")
+        echo "KERNEL=$KERNEL" >> $GITHUB_ENV
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo "status=success" >> $GITHUB_OUTPUT
+
+    - name: Upload firmware directory
+      uses: actions/upload-artifact@main
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      with:
+        name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: ${{ env.FIRMWARE }}
 
     - name: Upload firmware to cowtransfer
       id: cowtransfer
@@ -295,7 +281,7 @@ jobs:
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
-        echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
+        echo "url=$(cat cowtransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to WeTransfer
       id: wetransfer
@@ -304,20 +290,14 @@ jobs:
         curl -fsSL git.io/file-transfer | sh
         ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "::set-output name=url::$(cat wetransfer.log | grep https | cut -f3 -d" ")"
+        echo "url=$(cat wetransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
 
     - name: Generate release tag
       id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: steps.fw_check.outputs.firmware_exists == 'true' && steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         df -hT $PWD
-        #echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
-        #git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
-        #git -C openwrt/feeds/smpackages log --pretty=format:"%s(#By %an)"  --graph --since=3.hour >> release.txt
-        #test  ! -s release.txt && echo -e "\n* The source code is not updated." >> release.txt
-        #sed -i '1i ## Firmware Update Log' release.txt
-        
         touch release.txt
         echo "**This is OpenWrt Firmware for ${{ env.RELEASE_TAG }}**" >> release.txt
         echo "  ### 固件信息" >> release.txt
@@ -333,20 +313,18 @@ jobs:
         echo "  - ${{ env.COMMIT_DATE }}" >> release.txt
         echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
         echo "  - ${{ env.COMMIT_HASH }}" >> release.txt
-
         git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
-        
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
-     
+
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ env.RELEASE_TAG }}
+        tag_name: ${{ env.RELEASE_TAG }}-${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
@@ -358,7 +336,7 @@ jobs:
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      if: steps.tag.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 9
         delete_tags: true
