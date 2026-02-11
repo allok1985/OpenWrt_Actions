@@ -19,29 +19,24 @@
 sed -i '$a src-git smpackage https://github.com/kenzok8/small-package' feeds.conf.default
 # sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 # sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
-# 包含网络速度/定时设置/lucky大吉/一键扩容/网络设置向导
-sed -i '$a src-git siropboy https://github.com/sirpdboy/sirpdboy-package.git' feeds.conf.default
-# sed -i '$a src-git haiibo https://github.com/haiibo/openwrt-packages.git' feeds.conf.default
-# 较多主题及插件合集
-# sed -i '$a src-git ziyong https://github.com/firker/diy-ziyong.git' feeds.conf.default
+
 # sundaqiang自制的openwrt插件/简易更新/Nginx管理器/进程管理器/网络唤醒++
-sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
-# sed -i '$a src-git sundaqiangbak https://github.com/allok1985/sundaqiang-openwrt-packages' feeds.conf.default
+# sed -i '$a src-git sundaqiang https://github.com/sundaqiang/openwrt-packages.git' feeds.conf.default
+
 # sed -i '$a kiddin9 https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 # sed -i '20i Hyy2001X https://github.com/Hyy2001X/AutoBuild-Packages.git' feeds.conf.default
-sed -i '$a src-git NueXini https://github.com/NueXini/NueXini_Packages' feeds.conf.default
+# sed -i '$a src-git NueXini https://github.com/NueXini/NueXini_Packages' feeds.conf.default
 
 ##############################################################################################
 
 # 翻墙
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 # sed -i '$a src-git OpenClash https://github.com/vernesong/OpenClash' feeds.conf.default
-# sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall.git' feeds.conf.default
 # sed -i '$a src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' feeds.conf.default
 # sed -i '$a src-git vssr https://github.com/jerrykuku/luci-app-vssr' feeds.conf.default
-#sed -i '$a src-git nekobox https://github.com/Thaolga/openwrt-nekobox' feeds.conf.default
-sed -i '$a src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main' feeds.conf.default
-sed -i '$a src-git passwall_luci https://github.com/Openwrt-Passwall/openwrt-passwall.git;main' feeds.conf.default
+# sed -i '$a src-git nekobox https://github.com/Thaolga/openwrt-nekobox' feeds.conf.default
+# sed -i '$a src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main' feeds.conf.default
+# sed -i '$a src-git passwall_luci https://github.com/Openwrt-Passwall/openwrt-passwall.git;main' feeds.conf.default
 # 组网
 sed -i '$a src-git easytier https://github.com/EasyTier/luci-app-easytier' feeds.conf.default
 # DNS
@@ -88,6 +83,8 @@ sed -i '$a src-git netspeedtest https://github.com/sirpdboy/netspeedtest.git' fe
 # sed -i '$a src-git OpenAppFilter https://github.com/destan19/OpenAppFilter' feeds.conf.default
 # iKoolProxy是基于KoolProxyR广告过滤
 # sed -i '$a src-git ikoolproxy https://github.com/ilxp/luci-app-ikoolproxy' feeds.conf.default
+# Lucky
+sed -i '$a src-git lucky https://github.com/sirpdboy/luci-app-lucky.git package/lucky' feeds.conf.default
 
 ##############################################################################################
 
