@@ -36,6 +36,8 @@ env:
   TZ: Asia/Shanghai
   # 删除无用文件以增加编译空间
   DELETE_USELESS_FILES: true
+  # 检查编译文件是否存在
+  FW_CHECK: true
 
 jobs:
   build:
@@ -233,8 +235,9 @@ jobs:
       if: (!cancelled())
       run: |
         df -hT
- 
-    - name: Check firmware existence
+
+    - name: Check firmware existence 
+      if: env.FW_CHECK == 'true' && !cancelled()
       id: fw_check
       run: |
         set -euo pipefail
@@ -249,7 +252,7 @@ jobs:
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
-      if: steps.fw_check.outputs.firmware_exists == 'true' }}
+      if: steps.fw_check.outputs.firmware_exists == 'true' && env.UPLOAD_BIN_DIR == 'true'
       # if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
