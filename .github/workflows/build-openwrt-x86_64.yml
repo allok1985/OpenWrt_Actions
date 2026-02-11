@@ -134,9 +134,17 @@ jobs:
         echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
         COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
         echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
+  
     - name: Generate Variables
       run: |
-        cp $CONFIG_FILE $OPENWRT_PATH/.config
+        # 检查配置文件是否存在，存在则强制复制，不存在则使用默认配置
+        if [ -f "$CONFIG_FILE" ]; then
+            cp -f "$CONFIG_FILE" "$OPENWRT_PATH/.config"
+            echo "✅ 配置文件 $CONFIG_FILE 已成功复制到 $OPENWRT_PATH/.config"
+        else
+            echo "⚠️  配置文件 $CONFIG_FILE 不存在，跳过复制操作，将使用OpenWrt默认配置"
+        fi
+        # cp $CONFIG_FILE $OPENWRT_PATH/.config
         cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
