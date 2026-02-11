@@ -233,10 +233,24 @@ jobs:
       if: (!cancelled())
       run: |
         df -hT
+ 
+    - name: Check firmware existence
+      id: fw_check
+      run: |
+        set -euo pipefail
+        shopt -s globstar nullglob
+        firmware_files=(openwrt/bin/targets/**/**/openwrt-*.bin openwrt/bin/targets/**/**/openwrt-*.trx openwrt/bin/**/**/openwrt-*.img)
+        if [ ${#firmware_files[@]} -gt 0 ]; then
+        echo "firmware_exists=true" >> "$GITHUB_OUTPUT"
+        echo "firmware_candidates=${firmware_files[*]}" >> "$GITHUB_OUTPUT"
+        else
+        echo "firmware_exists=false" >> "$GITHUB_OUTPUT"
+        fi
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      if: steps.fw_check.outputs.firmware_exists == 'true' }}
+      # if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.OPENWRT_PATH }}/bin
