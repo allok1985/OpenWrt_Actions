@@ -44,8 +44,7 @@ sed -i '$a src-git easytier https://github.com/EasyTier/luci-app-easytier' feeds
 # sed -i '$a src-git smartdns https://github.com/pymumu/smartdns.git' feeds.conf.default
 # sed -i '$a src-git lucismartdns https://github.com/pymumu/luci-app-smartdns' feeds.conf.default
 # sed -i '$a src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome' feeds.conf.default
-# dockerman
-sed -i '$a src-git dockerman https://github.com/lisaac/luci-app-dockerman.git;master' feeds.conf.default
+
 #filebrowser
 # sed -i '$a src-git filebrowser https://github.com/immortalwrt/openwrt-filebrowser.git;master' feeds.conf.default
 # 信息推送
