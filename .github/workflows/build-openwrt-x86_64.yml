@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: 0x86_64.config
-  DIY_P1_SH: 0x86_64-part1.sh
-  DIY_P2_SH: 0x86_64-part2.sh
+  CONFIG_FILE: x86_64.config
+  DIY_P1_SH: x86_64-part1.sh
+  DIY_P2_SH: x86_64-part2.sh
   RELEASE_TAG: x86_64
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -296,13 +296,15 @@ jobs:
         cd $OPENWRT_PATH/bin/targets/*/*
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
+        # 先读取内核版本（在删除*.manifest文件前执行）
+        KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ' 2>/dev/null || echo "unknown")
+        echo "KERNEL=$KERNEL" >> $GITHUB_ENV
         if [ -d $OPENWRT_PATH/bin/packages ]; then
           mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages/ 2>/dev/null || true
           tar -zcf Packages.tar.gz packages/ 2>/dev/null || true
         fi
+        # 后删除无关文件
         rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums 2>/dev/null || true
-        KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ' 2>/dev/null || echo "unknown")
-        echo "KERNEL=$KERNEL" >> $GITHUB_ENV
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
