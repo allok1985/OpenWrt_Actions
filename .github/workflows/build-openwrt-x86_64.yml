@@ -23,9 +23,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64.config
-  DIY_P1_SH: x86_64-part1.sh
-  DIY_P2_SH: x86_64-part2.sh
+  CONFIG_FILE: 0x86_64.config
+  DIY_P1_SH: 0x86_64-part1.sh
+  DIY_P2_SH: 0x86_64-part2.sh
   RELEASE_TAG: x86_64
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -34,7 +34,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   # 删除无用文件以增加编译空间
-  DELETE_USELESS_FILES: true
+  DELETE_USELESS_FILES: false
   # 检查编译文件是否存在
   FW_CHECK: true
 
@@ -144,7 +144,6 @@ jobs:
         else
             echo "⚠️  配置文件 $CONFIG_FILE 不存在，跳过复制操作，将使用OpenWrt默认配置"
         fi
-        # cp $CONFIG_FILE $OPENWRT_PATH/.config
         cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
         SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
@@ -165,8 +164,8 @@ jobs:
       run: |
         # 检查自定义feeds配置文件是否存在，存在则替换
         if [ -f "$FEEDS_CONF" ]; then
-            mv -f "$FEEDS_CONF" openwrt/feeds.conf.default
-            echo "✅ 自定义feeds配置 $FEEDS_CONF 已替换为 openwrt/feeds.conf.default"
+            mv -f "$FEEDS_CONF" $OPENWRT_PATH/feeds.conf.default
+            echo "✅ 自定义feeds配置 $FEEDS_CONF 已替换为 $OPENWRT_PATH/feeds.conf.default"
         else
             echo "⚠️  自定义feeds配置 $FEEDS_CONF 不存在，使用源码默认feeds配置"
         fi
@@ -183,22 +182,20 @@ jobs:
 
     - name: Update feeds
       run: cd $OPENWRT_PATH && ./scripts/feeds update -a
-
     - name: Install feeds
       run: cd $OPENWRT_PATH && ./scripts/feeds install -a
-
     - name: Openwrt AutoUpdate
       run: |
         TEMP=$(date +"OpenWrt_x86_64_%Y%m%d_%H%M%S_")$(git rev-parse --short HEAD)
         echo "RELEASE_TAG=$TEMP" >> $GITHUB_ENV
         # Add DISTRIB_GITHUB to openwrt_release
-        sed -i "/DISTRIB_DESCRIPTION=/a\sed -i '/DISTRIB_GITHUB/d' /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
-        sed -i "/DISTRIB_GITHUB/a\echo \"DISTRIB_GITHUB=\'https://github.com/${{github.repository}}\'\" >> /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
+        sed -i "/DISTRIB_DESCRIPTION=/a\sed -i '/DISTRIB_GITHUB/d' /etc/openwrt_release" $OPENWRT_PATH/package/lean/default-settings/files/zzz-default-settings
+        sed -i "/DISTRIB_GITHUB/a\echo \"DISTRIB_GITHUB=\'https://github.com/${{github.repository}}\'\" >> /etc/openwrt_release" $OPENWRT_PATH/package/lean/default-settings/files/zzz-default-settings
         # Add DISTRIB_VERSIONS to openwrt_release
-        sed -i "/DISTRIB_DESCRIPTION=/a\sed -i '/DISTRIB_VERSIONS/d' /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
-        sed -i "/DISTRIB_VERSIONS/a\echo \"DISTRIB_VERSIONS=\'${TEMP:8}\'\" >> /etc/openwrt_release" openwrt/package/lean/default-settings/files/zzz-default-settings
+        sed -i "/DISTRIB_DESCRIPTION=/a\sed -i '/DISTRIB_VERSIONS/d' /etc/openwrt_release" $OPENWRT_PATH/package/lean/default-settings/files/zzz-default-settings
+        sed -i "/DISTRIB_VERSIONS/a\echo \"DISTRIB_VERSIONS=\'${TEMP:8}\'\" >> /etc/openwrt_release" $OPENWRT_PATH/package/lean/default-settings/files/zzz-default-settings
         # Modify DISTRIB_DESCRIPTION
-        sed -i "s/OpenWrt /${{github.actor}} compiled (${TEMP:8}) \/ OpenWrt /g" openwrt/package/lean/default-settings/files/zzz-default-settings
+        sed -i "s/OpenWrt /${{github.actor}} compiled (${TEMP:8}) \/ OpenWrt /g" $OPENWRT_PATH/package/lean/default-settings/files/zzz-default-settings
 
     - name: Load custom configuration
       run: |
@@ -274,14 +271,14 @@ jobs:
         set -euo pipefail
         shopt -s globstar nullglob
         # 检查指定文件，任意一个存在即通过
-        firmware_files=(openwrt/bin/targets/**/**/*.buildinfo openwrt/bin/targets/**/**/*.manifest openwrt/bin/targets/**/**/*kernel.bin openwrt/bin/targets/**/**/*rootfs.img.gz openwrt/bin/targets/**/**/profiles.json openwrt/bin/targets/**/**/sha256sums)
+        firmware_files=($OPENWRT_PATH/bin/targets/**/**/*.buildinfo $OPENWRT_PATH/bin/targets/**/**/*.manifest $OPENWRT_PATH/bin/targets/**/**/*kernel.bin $OPENWRT_PATH/bin/targets/**/**/*rootfs.img.gz $OPENWRT_PATH/bin/targets/**/**/profiles.json $OPENWRT_PATH/bin/targets/**/**/sha256sums)
         if [ ${#firmware_files[@]} -gt 0 ]; then
         echo "firmware_exists=true" >> "$GITHUB_OUTPUT"
         echo "firmware_candidates=${firmware_files[*]}" >> "$GITHUB_OUTPUT"
         else
         echo "firmware_exists=false" >> "$GITHUB_OUTPUT"
         fi
-    
+
     - name: Upload bin directory
       uses: actions/upload-artifact@main
       if: steps.fw_check.outputs.firmware_exists == 'true' && env.UPLOAD_BIN_DIR == 'true' && !cancelled()
@@ -354,7 +351,7 @@ jobs:
         echo "  - ${{ env.COMMIT_DATE }}" >> release.txt
         echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
         echo "  - ${{ env.COMMIT_HASH }}" >> release.txt
-        git -C openwrt log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
+        git -C $OPENWRT_PATH log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
