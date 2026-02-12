@@ -98,6 +98,10 @@ rm -rf package/feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftn
 # rm -rf package/feeds/packages/xray-core
 # rm -rf package/feeds/packages/geoview
 
+
+# 简易更新
+svn co https://github.com/FanxJK/openwrt-packages/tree/main/luci/applications/luci-app-easyupdate package/luci-app-easyupdate
+
 #
 #https://github.com/kenzok8/small/issues/148#issuecomment-1999543382
 #sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
