@@ -8,6 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # ywt114/free-disk-space@main jlumbroso/free-disk-space
 # https://github.com/haiibo/OpenWrt/blob/main/.github/workflows/X86_64-OpenWrt.yml
+# https://github.com/FanxJK/OpenWrt-x86_64-Actions/blob/main/.github/workflows/build-openwrt.yml
 
 name: Build OpenWrt x86_64
 on:
@@ -23,9 +24,9 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86_64.config
-  DIY_P1_SH: x86_64-part1.sh
-  DIY_P2_SH: x86_64-part2.sh
+  CONFIG_FILE: 0x86_64.config
+  DIY_P1_SH: 0x86_64-part1.sh
+  DIY_P2_SH: 0x86_64-part2.sh
   RELEASE_TAG: x86_64
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
@@ -34,7 +35,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   # 删除无用文件以增加编译空间
-  DELETE_USELESS_FILES: true
+  DELETE_USELESS_FILES: false
   # 检查编译文件是否存在
   FW_CHECK: true
 
@@ -93,7 +94,7 @@ jobs:
         large-packages: true
         docker-images: true
         swap-storage: true
-    
+
     - name: Checkout
       uses: actions/checkout@main
       
@@ -117,7 +118,7 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         df -hT
- 
+
     - name: Clone source code
       working-directory: /workdir
       run: |
@@ -134,7 +135,7 @@ jobs:
         echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
         COMMIT_HASH=$(git show -s --date=short --format="hash: %H")
         echo "COMMIT_HASH=$COMMIT_HASH" >> $GITHUB_ENV
-  
+
     - name: Generate Variables
       run: |
         # 检查配置文件是否存在，存在则强制复制，不存在则使用默认配置
@@ -182,8 +183,10 @@ jobs:
 
     - name: Update feeds
       run: cd $OPENWRT_PATH && ./scripts/feeds update -a
+
     - name: Install feeds
       run: cd $OPENWRT_PATH && ./scripts/feeds install -a
+
     - name: Openwrt AutoUpdate
       run: |
         TEMP=$(date +"OpenWrt_x86_64_%Y%m%d_%H%M%S_")$(git rev-parse --short HEAD)
@@ -222,7 +225,7 @@ jobs:
         else
             echo "⚠️  自定义脚本 $DIY_P2_SH 不存在，跳过脚本执行"
         fi
-        
+
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
@@ -293,14 +296,13 @@ jobs:
         cd $OPENWRT_PATH/bin/targets/*/*
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
-        # 先读取内核版本（在删除*.manifest文件前执行）
         KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ' 2>/dev/null || echo "unknown")
         echo "KERNEL=$KERNEL" >> $GITHUB_ENV
         if [ -d $OPENWRT_PATH/bin/packages ]; then
           mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages/ 2>/dev/null || true
           tar -zcf Packages.tar.gz packages/ 2>/dev/null || true
         fi
-        # 后删除无关文件
+        # 删除无关文件
         rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums 2>/dev/null || true
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
@@ -345,12 +347,24 @@ jobs:
         echo "  - 内核版本: ${{ env.KERNEL }}" >> release.txt
         echo "  - 默认地址: 192.168.1.1" >> release.txt
         echo "  - 默认密码: password" >> release.txt
-        echo "  ### 固件版本" >> release.txt
+        
+        # 主要更新板块，读取.github/CHANGELOG.txt内容
+        echo "  ### 主要更新" >> release.txt
+        # 检查CHANGELOG.txt是否存在，存在则读取内容，不存在则显示默认提示
+        if [ -f "$GITHUB_WORKSPACE/.github/CHANGELOG.txt" ]; then
+            cat "$GITHUB_WORKSPACE/.github/CHANGELOG.txt" >> release.txt
+        else
+            echo "  暂无自定义更新说明" >> release.txt
+        fi
+        
+        # 主程序信息板块（原固件版本）
+        echo "  ### 主程序信息" >> release.txt
         echo "  - 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录" >> release.txt
         echo "  - ${{ env.COMMIT_AUTHOR }}" >> release.txt
         echo "  - ${{ env.COMMIT_DATE }}" >> release.txt
-        echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
+        # 保持COMMIT_HASH在前、COMMIT_MESSAGE在后的顺序
         echo "  - ${{ env.COMMIT_HASH }}" >> release.txt
+        echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
         git -C $OPENWRT_PATH log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
