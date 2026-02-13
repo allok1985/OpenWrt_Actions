@@ -258,8 +258,17 @@ jobs:
       run: |
         df -hT $PWD
         cd $OPENWRT_PATH
-        echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j8 || make -j8 V=s
+        # 获取CPU核心数并动态设置编译线程数
+        CORES=$(nproc)
+        if [ $CORES -le 4 ]; then
+            COMPILE_THREADS=$CORES
+        else
+            COMPILE_THREADS=$((CORES - 1))
+        fi
+        echo "检测到CPU核心数: $CORES，设置编译线程数: $COMPILE_THREADS"
+        echo -e "$COMPILE_THREADS thread compile"
+        # 动态线程数编译，失败后降级到8线程，再失败则输出详细日志
+        make -j$COMPILE_THREADS || make -j8 || make -j8 V=s
         echo "status=success" >> $GITHUB_OUTPUT
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
