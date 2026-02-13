@@ -8,7 +8,6 @@
 # Description: Build OpenWrt using GitHub Actions
 # ywt114/free-disk-space@main jlumbroso/free-disk-space
 # https://github.com/haiibo/OpenWrt/blob/main/.github/workflows/X86_64-OpenWrt.yml
-# https://github.com/FanxJK/OpenWrt-x86_64-Actions/blob/main/.github/workflows/build-openwrt.yml
 
 name: Build OpenWrt x86_64
 on:
@@ -153,6 +152,18 @@ jobs:
         echo "DEVICE_TARGET=$DEVICE_TARGET" >> $GITHUB_ENV
         DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
         echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_ENV
+        
+        # 读取zzz-default-settings中的OPENWRT_RELEASE值
+        DEFAULT_SETTINGS_FILE="$OPENWRT_PATH/package/lean/default-settings/files/zzz-default-settings"
+        if [ -f "$DEFAULT_SETTINGS_FILE" ]; then
+            # 提取OPENWRT_RELEASE=后引号内的内容
+            OPENWRT_RELEASE=$(grep 'OPENWRT_RELEASE=' "$DEFAULT_SETTINGS_FILE" | grep -o '"[^"]*"' | sed 's/"//g' || echo "unknown")
+            echo "OPENWRT_RELEASE=$OPENWRT_RELEASE" >> $GITHUB_ENV
+            echo "✅ 已读取固件版本: $OPENWRT_RELEASE"
+        else
+            echo "OPENWRT_RELEASE=unknown" >> $GITHUB_ENV
+            echo "⚠️  zzz-default-settings文件不存在，固件版本设为unknown"
+        fi
 
     - name: Cache
       uses: klever1988/cachewrtbuild@main
@@ -296,13 +307,14 @@ jobs:
         cd $OPENWRT_PATH/bin/targets/*/*
         cat sha256sums
         cp $OPENWRT_PATH/.config build.config
+        # 先读取内核版本（在删除*.manifest文件前执行）
         KERNEL=$(cat *.manifest | grep ^kernel | cut -d- -f2 | tr -d ' ' 2>/dev/null || echo "unknown")
         echo "KERNEL=$KERNEL" >> $GITHUB_ENV
         if [ -d $OPENWRT_PATH/bin/packages ]; then
           mv -f $OPENWRT_PATH/bin/packages/*/*/*.ipk packages/ 2>/dev/null || true
           tar -zcf Packages.tar.gz packages/ 2>/dev/null || true
         fi
-        # 删除无关文件
+        # 后删除无关文件
         rm -rf packages *.buildinfo *.manifest *kernel.bin *rootfs.img.gz profiles.json sha256sums 2>/dev/null || true
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
@@ -344,6 +356,7 @@ jobs:
         echo "  - 平台架构: ${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}" >> release.txt
         echo "  - 固件源码: ${{ env.REPO_URL }}" >> release.txt
         echo "  - 源码分支: ${{ env.REPO_BRANCH }}" >> release.txt
+        echo "  - 固件版本: ${{ env.OPENWRT_RELEASE }}" >> release.txt
         echo "  - 内核版本: ${{ env.KERNEL }}" >> release.txt
         echo "  - 默认地址: 192.168.1.1" >> release.txt
         echo "  - 默认密码: password" >> release.txt
@@ -357,12 +370,11 @@ jobs:
             echo "  暂无自定义更新说明" >> release.txt
         fi
         
-        # 主程序信息板块（原固件版本）
+        # 主程序信息板块
         echo "  ### 主程序信息" >> release.txt
         echo "  - 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录" >> release.txt
         echo "  - ${{ env.COMMIT_AUTHOR }}" >> release.txt
         echo "  - ${{ env.COMMIT_DATE }}" >> release.txt
-        # 保持COMMIT_HASH在前、COMMIT_MESSAGE在后的顺序
         echo "  - ${{ env.COMMIT_HASH }}" >> release.txt
         echo "  - ${{ env.COMMIT_MESSAGE }}" >> release.txt
         git -C $OPENWRT_PATH log --pretty=format:"%s(#By %an)"  --graph --since=168.hour >> release.txt
